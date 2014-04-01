@@ -24,3 +24,4 @@ VERSION_UPDATE_MINOR = u'minor'
 VERSION_UPDATE_MICRO = u'micro'
 
 DEFAULT_ZIP_FILENAME = u'document_bundle.zip'
+DEFAULT_CSV_FILENAME = u'export.csv'

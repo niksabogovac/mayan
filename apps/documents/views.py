@@ -1,76 +1,166 @@
 from __future__ import absolute_import
-
-import urlparse
-import copy
-import logging
-
-from django.utils.translation import ugettext_lazy as _
-from django.http import HttpResponseRedirect, HttpResponse
-from django.shortcuts import render_to_response, get_object_or_404
-from django.template import RequestContext
-from django.contrib import messages
-from django.views.generic.list_detail import object_list
-from django.core.urlresolvers import reverse
-from django.utils.http import urlencode
-from django.core.exceptions import PermissionDenied
-from django.conf import settings
-
-import sendfile
-from common.utils import pretty_size, parse_range, urlquote, \
-    return_diff, encapsulate
-from common.widgets import two_state_template
-from common.literals import PAGE_SIZE_DIMENSIONS, \
-    PAGE_ORIENTATION_PORTRAIT, PAGE_ORIENTATION_LANDSCAPE
+from .conf.settings import PREVIEW_SIZE, STORAGE_BACKEND, ZOOM_PERCENT_STEP, \
+    ZOOM_MAX_LEVEL, ZOOM_MIN_LEVEL, ROTATION_STEP, PRINT_SIZE, RECENT_COUNT
+from .events import HISTORY_DOCUMENT_CREATED, HISTORY_DOCUMENT_EDITED, \
+    HISTORY_DOCUMENT_DELETED
+from .forms import DocumentTypeSelectForm, DocumentForm_edit, \
+    DocumentPropertiesForm, DocumentPreviewForm, DocumentPageForm, \
+    DocumentPageTransformationForm, DocumentContentForm, DocumentPageForm_edit, \
+    DocumentPageForm_text, PrintForm, DocumentTypeForm, DocumentTypeFilenameForm, \
+    DocumentTypeFilenameForm_create, DocumentDownloadForm
+from .models import Document, DocumentType, DocumentPage, \
+    DocumentPageTransformation, RecentDocument, DocumentTypeFilename, \
+    DocumentVersion
+from .permissions import PERMISSION_DOCUMENT_CREATE, \
+    PERMISSION_DOCUMENT_PROPERTIES_EDIT, PERMISSION_DOCUMENT_VIEW, \
+    PERMISSION_DOCUMENT_DELETE, PERMISSION_DOCUMENT_DOWNLOAD, \
+    PERMISSION_DOCUMENT_TRANSFORM, PERMISSION_DOCUMENT_TOOLS, \
+    PERMISSION_DOCUMENT_EDIT, PERMISSION_DOCUMENT_VERSION_REVERT, \
+    PERMISSION_DOCUMENT_TYPE_EDIT, PERMISSION_DOCUMENT_TYPE_DELETE, \
+    PERMISSION_DOCUMENT_TYPE_CREATE, PERMISSION_DOCUMENT_TYPE_VIEW
+from .wizards import DocumentCreateWizard
+from acls.models import AccessEntry
+from common.compressed_files import CompressedFile
 from common.conf.settings import DEFAULT_PAPER_SIZE
+from common.literals import PAGE_SIZE_DIMENSIONS, PAGE_ORIENTATION_PORTRAIT, \
+    PAGE_ORIENTATION_LANDSCAPE
+from common.templatetags.attribute_tags import get_model_list_columns
+from common.utils import pretty_size, parse_range, urlquote, return_diff, \
+    encapsulate, return_attrib
+from common.widgets import two_state_template
 from converter.literals import DEFAULT_ZOOM_LEVEL, DEFAULT_ROTATION, \
     DEFAULT_PAGE_NUMBER, DEFAULT_FILE_FORMAT_MIMETYPE
 from converter.office_converter import OfficeConverter
+from django.conf import settings
+from django.contrib import messages
+from django.core.exceptions import PermissionDenied
+from django.core.files.uploadedfile import SimpleUploadedFile
+from django.core.urlresolvers import reverse
+from django.db.models import Q
+from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import render_to_response, get_object_or_404
+from django.template import RequestContext
+from django.utils.http import urlencode
+from django.utils.translation import ugettext_lazy as _
+from django.views.generic.list_detail import object_list
+from document_indexing.api import update_indexes, delete_indexes
+from documents.forms import DocumentExportMetadataForm
 from filetransfers.api import serve_file
+from history.api import create_history
+from itertools import chain
 from metadata.forms import MetadataFormSet, MetadataSelectionForm
+from metadata.models import MetadataType, DocumentMetadata
 from navigation.utils import resolve_to_name
 from permissions.models import Permission
-from document_indexing.api import update_indexes, delete_indexes
-from history.api import create_history
-from acls.models import AccessEntry
-from common.compressed_files import CompressedFile
+from sources import csv_file
+import copy
+import logging
+import sendfile
+import tempfile
+import types
+import urlparse
 
-from .conf.settings import (PREVIEW_SIZE, STORAGE_BACKEND, ZOOM_PERCENT_STEP,
-    ZOOM_MAX_LEVEL, ZOOM_MIN_LEVEL, ROTATION_STEP, PRINT_SIZE,
-    RECENT_COUNT)
-from .permissions import (PERMISSION_DOCUMENT_CREATE,
-    PERMISSION_DOCUMENT_PROPERTIES_EDIT, PERMISSION_DOCUMENT_VIEW,
-    PERMISSION_DOCUMENT_DELETE, PERMISSION_DOCUMENT_DOWNLOAD,
-    PERMISSION_DOCUMENT_TRANSFORM, PERMISSION_DOCUMENT_TOOLS,
-    PERMISSION_DOCUMENT_EDIT, PERMISSION_DOCUMENT_VERSION_REVERT,
-    PERMISSION_DOCUMENT_TYPE_EDIT, PERMISSION_DOCUMENT_TYPE_DELETE,
-    PERMISSION_DOCUMENT_TYPE_CREATE, PERMISSION_DOCUMENT_TYPE_VIEW)
-from .events import (HISTORY_DOCUMENT_CREATED,
-    HISTORY_DOCUMENT_EDITED, HISTORY_DOCUMENT_DELETED)
-from .forms import (DocumentTypeSelectForm,
-        DocumentForm_edit, DocumentPropertiesForm,
-        DocumentPreviewForm, DocumentPageForm,
-        DocumentPageTransformationForm, DocumentContentForm,
-        DocumentPageForm_edit, DocumentPageForm_text, PrintForm,
-        DocumentTypeForm, DocumentTypeFilenameForm,
-        DocumentTypeFilenameForm_create, DocumentDownloadForm)
-from .wizards import DocumentCreateWizard
-from .models import (Document, DocumentType, DocumentPage,
-    DocumentPageTransformation, RecentDocument, DocumentTypeFilename,
-    DocumentVersion)
 
 logger = logging.getLogger(__name__)
 
 
-def document_list(request, object_list=None, title=None, extra_context=None):
-    pre_object_list = object_list if not (object_list is None) else Document.objects.all()
+def document_list(request, object_list=None, title=None, extra_context=None,):
+    
+    pre_object_list = None
+    pre_object_list1 = None
+    pre_object_list2 = None
+    pre_object_list3 = None
+    
+    filter_columns = {}
+    
+    filters_found = False
+    index = 1
+    while not filters_found:
+        filter_column = request.GET.get('filter_column' + str(index), '')
+        filter_value = request.GET.get('filter_value' +  str(index), '')
+        index += 1
+        if filter_column is not '':
+            filter_columns[filter_column.strip()] = filter_value
+        else:
+            filters_found = True
 
-    try:
-        Permission.objects.check_permissions(request.user, [PERMISSION_DOCUMENT_VIEW])
-    except PermissionDenied:
-        # If user doesn't have global permission, get a list of document
-        # for which he/she does hace access use it to filter the
-        # provided object_list
-        final_object_list = AccessEntry.objects.filter_objects_by_access(PERMISSION_DOCUMENT_VIEW, request.user, pre_object_list)
+    sort_column = request.GET.get('sort_column', '')
+    sort_type = request.GET.get('sort_type', '')
+    if sort_column is not '':
+        if sort_type == 'desc':
+            sort_type = '-'
+        else:
+            sort_type = ''
+
+        if sort_column.startswith('metadata_'):
+            sort_column = sort_column[9:]
+            
+            sort_metadata_type = MetadataType.objects.get(name = sort_column)
+            
+            if object_list is None:
+                object_list = Document.objects
+            
+            # filter list that has current metadata selected sort
+            pre_object_list1 = object_list.filter(documentmetadata__metadata_type__id=sort_metadata_type.id)
+            pre_object_list1 = pre_object_list1.order_by(sort_type + 'documentmetadata__value')
+            
+            # filter list that has not current metadata selected sort
+            pre_object_list2 = object_list.exclude(documentmetadata__metadata_type__id=sort_metadata_type.id)
+            
+            # filter list that has current metadata selected sort, but the value of a metadata is empty or null
+            pre_object_list3 = object_list.filter(Q(documentmetadata__metadata_type__id=sort_metadata_type.id), Q(documentmetadata__value=None) | Q(documentmetadata__value=''))
+            
+            #since nothing else worked using django ql we remove values that has empty metadata value manually
+            pre_object_list1 = pre_object_list1.exclude(id__in=pre_object_list3)
+
+            if len(filter_columns.values()) > 0:
+                for filter_column in filter_columns.keys():
+                    filter_value = filter_columns[filter_column]
+                    if filter_value != '':
+                        sort_metadata_type = MetadataType.objects.get(name = filter_column)
+                        pre_object_list1 = pre_object_list1.filter(Q(documentmetadata__metadata_type__id=sort_metadata_type.id), Q(documentmetadata__value__icontains=filter_value))
+                        pre_object_list2 = pre_object_list2.filter(Q(documentmetadata__metadata_type__id=sort_metadata_type.id), Q(documentmetadata__value__icontains=filter_value))
+                        pre_object_list3 = pre_object_list3.filter(Q(documentmetadata__metadata_type__id=sort_metadata_type.id), Q(documentmetadata__value__icontains=filter_value))
+    
+        else:
+            if not object_list is None:
+                pre_object_list = object_list.order_by(sort_type + sort_column)
+            else:
+                pre_object_list =  Document.objects.order_by(sort_type + sort_column)
+            if len(filter_columns.values()) > 0:
+                for filter_column in filter_columns.keys():
+                    filter_value = filter_columns[filter_column]
+                    if filter_value != '':
+                        sort_metadata_type = MetadataType.objects.get(name = filter_column)
+                        pre_object_list = pre_object_list.filter(Q(documentmetadata__metadata_type__id=sort_metadata_type.id), Q(documentmetadata__value__icontains=filter_value))
+    else:
+        pre_object_list = object_list if not (object_list is None) else Document.objects.all()
+        if len(filter_columns.values()) > 0:
+            for filter_column in filter_columns.keys():
+                filter_value = filter_columns[filter_column]
+                if filter_value != '':
+                    sort_metadata_type = MetadataType.objects.get(name = filter_column)
+                    pre_object_list = pre_object_list.filter(Q(documentmetadata__metadata_type__id=sort_metadata_type.id), Q(documentmetadata__value__icontains=filter_value))
+
+    if sort_column is not '' :
+        if sort_type == '-':
+            pre_object_list = list(chain(pre_object_list2, pre_object_list3, pre_object_list1))
+        else:
+            pre_object_list = list(chain(pre_object_list1, pre_object_list3, pre_object_list2))
+
+    check_documents_permissions = True
+    if extra_context is not None and 'check_documents_permissions' in extra_context.keys():
+        check_documents_permissions = extra_context['check_documents_permissions']
+    if check_documents_permissions:
+        try:
+            Permission.objects.check_permissions(request.user, [PERMISSION_DOCUMENT_VIEW])
+        except PermissionDenied:
+            # If user doesn't have global permission, get a list of document
+            # for which he/she does hace access use it to filter the
+            # provided object_list
+            final_object_list = AccessEntry.objects.filter_objects_by_access(PERMISSION_DOCUMENT_VIEW, request.user, pre_object_list)
+        else:
+            final_object_list = pre_object_list
     else:
         final_object_list = pre_object_list
 
@@ -79,18 +169,49 @@ def document_list(request, object_list=None, title=None, extra_context=None):
         'title': title if title else _(u'documents'),
         'multi_select_as_buttons': True,
         'hide_links': True,
+        'display_metadata_columns' : True,
+        'sort_identifier': 'documentversion__filename',
+        'filter_column_count': len(filter_columns.values()),
+        'filter_columns': filter_columns
     }
+    
+    if request.path == '/documents/list/':
+        context['show_sort'] = True
+
+    if request.path == '/documents/list/recent/':
+        context['hide_sort'] = True
+
     if extra_context:
         context.update(extra_context)
+
+    metadata_columns = []
+    for obj in final_object_list:
+        metadata_set = obj.documentmetadata_set.all()
+        for metadata in metadata_set:
+            metadata_internal_name = unicode(metadata.metadata_type.name)
+            metadata_external_name = unicode(metadata)
+            found = False
+            for metadata in metadata_columns:
+                if metadata['internal_name'] == metadata_internal_name:
+                    found = True
+                    break
+            if not found:
+                metadata_columns.append({ 'internal_name' :  metadata_internal_name, 'external_name' :  metadata_external_name })
+                
+    metadata_columns.sort()
+    context['metadata_columns'] = metadata_columns
 
     return render_to_response('generic_list.html', context,
         context_instance=RequestContext(request))
 
 
-def document_create(request):
+def document_create(request, csv=False):
     Permission.objects.check_permissions(request.user, [PERMISSION_DOCUMENT_CREATE])
 
-    wizard = DocumentCreateWizard(form_list=[DocumentTypeSelectForm, MetadataSelectionForm, MetadataFormSet])
+    if csv == True:
+        wizard = DocumentCreateWizard(form_list=[DocumentTypeSelectForm], csv=csv)
+    else:
+        wizard = DocumentCreateWizard(form_list=[DocumentTypeSelectForm, MetadataSelectionForm, MetadataFormSet])
 
     return wizard(request)
 
@@ -318,7 +439,6 @@ def get_document_image(request, document_id, size=PREVIEW_SIZE, base64_version=F
         # TODO: fix hardcoded MIMETYPE
         return sendfile.sendfile(request, document.get_image(size=size, page=page, zoom=zoom, rotation=rotation, version=version), mimetype=DEFAULT_FILE_FORMAT_MIMETYPE)
 
-
 def document_download(request, document_id=None, document_id_list=None, document_version_pk=None):
     previous = request.POST.get('previous', request.GET.get('previous', request.META.get('HTTP_REFERER', '/')))
 
@@ -427,6 +547,81 @@ def document_multiple_download(request):
         request, document_id_list=request.GET.get('id_list', [])
     )
 
+def document_export_csv(request, document_id_list=None):
+    previous = request.POST.get('previous', request.GET.get('previous', request.META.get('HTTP_REFERER', '/')))
+    document_versions = [get_object_or_404(Document, pk=document_id).latest_version for document_id in document_id_list.split(',')]
+    
+    try:
+        Permission.objects.check_permissions(request.user, [PERMISSION_DOCUMENT_DOWNLOAD])
+    except PermissionDenied:
+        document_versions = AccessEntry.objects.filter_objects_by_access(PERMISSION_DOCUMENT_DOWNLOAD, request.user, document_versions, related='document', exception_on_empty=True)
+        
+    if request.method == 'POST':
+        form = DocumentExportMetadataForm(request.POST)
+        if form.is_valid():
+            metadata_dict = {}
+            
+            for doc in document_versions:
+                docs_metadata = DocumentMetadata.objects.filter(document=doc)
+                docs_metadata_dict = {}
+                for doc_metadata in docs_metadata:
+                    docs_metadata_dict[doc_metadata.metadata_type.name.encode('utf-8') ] = doc_metadata.value.encode('utf-8') 
+                metadata_dict[doc.filename.encode('utf-8') ] = docs_metadata_dict
+            
+            csv_file_content = tempfile.TemporaryFile()
+            csv_file_content.write(csv_file.generate_csv_str(metadata_dict))
+            csv_file_content.seek(0)
+            csv_file_to_upload = SimpleUploadedFile(name=unicode(form.cleaned_data['csv_filename']), content=csv_file_content.read(), content_type='text/csv')
+            
+            return serve_file(
+                        request,
+                        csv_file_to_upload,
+                        save_as=u'"%s"' % form.cleaned_data['csv_filename'],
+                        content_type='text/csv'
+                    )
+    else:
+        form = DocumentExportMetadataForm()
+     
+    context = {
+        'form': form,
+        'title': _(u'Download metadata'),
+        'submit_label': _(u'Download'),
+        'previous': previous,
+        'cancel_label': _(u'Return'),
+        #'disable_auto_focus': True,
+    }
+        
+    return render_to_response(
+        'generic_form.html',
+        context,
+        context_instance=RequestContext(request)
+    )
+
+def document_export_csv_all(request):
+    documents = Document.objects.all()
+    
+    try:
+        Permission.objects.check_permissions(request.user, [PERMISSION_DOCUMENT_DOWNLOAD])
+    except PermissionDenied:
+        documents = AccessEntry.objects.filter_objects_by_access(PERMISSION_DOCUMENT_DOWNLOAD, request.user, related='document', exception_on_empty=True)
+    
+    document_id_list = ''
+    for document in documents:
+        document_id_list += str(document.id) + ','
+    
+    if len(document_id_list) > 1:
+        document_id_list = document_id_list[:-1]
+    
+    print 'document_id_list: ' + str(document_id_list)
+    
+    return document_export_csv(
+        request, document_id_list=document_id_list
+    )
+
+def document_export_csv_selected(request):
+    return document_export_csv(
+        request, document_id_list=request.GET.get('id_list', [])
+    )
 
 def document_page_transformation_list(request, document_page_id):
     document_page = get_object_or_404(DocumentPage, pk=document_page_id)

@@ -1,0 +1,169 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Mayan EDMS\n"
+"Report-Msgid-Bugs-To: http://github.com/rosarior/mayan/issues\n"
+"POT-Creation-Date: 2012-12-12 01:48-0400\n"
+"PO-Revision-Date: Wed Oct 23 2013 11:03:09 GMT+0200 (Central Europe Daylight "
+"Time)\n"
+"Last-Translator: jomer <jomer@ping.ba>\n"
+"Language-Team: Bosnian (Bosnia and Herzegovina) (http://www.transifex."
+"com/projects/p/mayan-edms/language/bs_BA/)\n"
+"Language: bs_BA\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 "
+"&& (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Loco-Source-Locale: sr_RS\n"
+"X-Loco-Parser: loco_parse_po\n"
+"X-Loco-Target-Locale: en_GB\n"
+"X-Generator: Loco - https://localise.biz/"
+
+msgid "private keys"
+msgstr "privatni ključevi"
+
+msgid "public keys"
+msgstr "opšti ključevi"
+
+msgid "delete"
+msgstr "obriši"
+
+msgid "query keyservers"
+msgstr "upit keyservera"
+
+msgid "import"
+msgstr "uvoz"
+
+msgid "key management"
+msgstr "upravljanje ključevima"
+
+msgid "Public"
+msgstr "Opšti"
+
+msgid "Secret"
+msgstr "Tajna"
+
+msgid "RSA"
+msgstr "RSA"
+
+msgid "DSA"
+msgstr "DSA"
+
+msgid "Elgamal"
+msgstr "Elgamal"
+
+msgid "Bad signature."
+msgstr "Loš potpis."
+
+msgid "Document not signed or invalid signature."
+msgstr "Dokument nije potpisan, ili je potpis nevažeći."
+
+msgid "Signature error."
+msgstr "Greška kod potpisa."
+
+msgid "Document is signed but no public key is available for verification."
+msgstr "Dokument je potpisan, ali  opšti ključ nije dostupan za proveru."
+
+msgid "Document is signed, and signature is good."
+msgstr "Dokument je potpisan, a potpis je dobar."
+
+msgid "Document is signed with a valid signature."
+msgstr "Dokument je potpisan važećim potpisom."
+
+msgid "unknown"
+msgstr "nepoznat"
+
+msgid "Term"
+msgstr "Pojam"
+
+msgid "Name, e-mail, key ID or key fingerprint to look for."
+msgstr "Ime, e-mail, ID ključ ili otisak ključa koji se traži."
+
+msgid "Key management"
+msgstr "Upravljanje ključevima"
+
+msgid "View keys"
+msgstr "Pogledaj ključeve"
+
+msgid "Delete keys"
+msgstr "Obriši ključeve"
+
+msgid "Query keyservers"
+msgstr "Upit keyservera"
+
+msgid "Import keys from keyservers"
+msgstr "Uvezi ključeve sa keyservera"
+
+msgid "Key: %s, imported successfully."
+msgstr "Ključ: %s, uspešno importovan."
+
+msgid "Unable to import key id: %(key_id)s; %(error)s"
+msgstr "Nije moguće uvesti id ključa: %(key_id)s; %(error)s"
+
+msgid "Import key"
+msgstr "Importuj ključ"
+
+msgid "Are you sure you wish to import key id: %s?"
+msgstr "Da li ste sigurni da želite da importujete id ključa: %s?"
+
+msgid "Key ID"
+msgstr "ID ključa"
+
+msgid "Owner"
+msgstr "Vlasnik"
+
+msgid "Key: %s, deleted successfully."
+msgstr "Ključ: %s, uspešno obrisan."
+
+msgid "Delete key"
+msgstr "Obriši ključ"
+
+msgid ""
+"Are you sure you wish to delete key: %s?  If you try to delete a public key "
+"that is part of a public/private pair the private key will be deleted as well."
+msgstr ""
+"Da li ste sigurni da želite da izbrišete ključ: %s? Ako pokušate da obrišete "
+"opšti ključ koji je deo opšteg/privatnog para privatni ključ će biti izbrisan "
+"takođe."
+
+msgid "Query key server"
+msgstr "Upit servera ključeva"
+
+msgid "results"
+msgstr "rezultati"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "type"
+msgstr "tip"
+
+msgid "creation date"
+msgstr "datum kreiranja"
+
+msgid "disabled"
+msgstr "onemogućen"
+
+msgid "expiration date"
+msgstr "datum isteka"
+
+msgid "expired"
+msgstr "istekao"
+
+msgid "length"
+msgstr "dužina"
+
+msgid "revoked"
+msgstr "ukinut"
+
+msgid "Identifies"
+msgstr "Identifikuje"
+
+msgid "List of keyservers to be queried for unknown keys."
+msgstr "Lista keyservera za upit za nepoznate ključeve."
+
+msgid "Home directory used to store keys as well as configuration files."
+msgstr ""
+"Home direktorijum se koristi za skladištenje ključeva, kao i konfiguracijskih "
+"datoteka."

@@ -1,0 +1,379 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Mayan EDMS\n"
+"Report-Msgid-Bugs-To: http://github.com/rosarior/mayan/issues\n"
+"POT-Creation-Date: 2012-12-12 01:49-0400\n"
+"PO-Revision-Date: Thu Oct 24 2013 16:07:01 GMT+0200 (Central Europe Daylight "
+"Time)\n"
+"Last-Translator: jomer <jomer@ping.ba>\n"
+"Language-Team: Bosnian (Bosnia and Herzegovina) (http://www.transifex."
+"com/projects/p/mayan-edms/language/bs_BA/)\n"
+"Language: bs_BA\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 "
+"&& (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Loco-Source-Locale: sr_RS\n"
+"X-Loco-Parser: loco_parse_po\n"
+"X-Loco-Target-Locale: bs_BA\n"
+"X-Generator: Loco - https://localise.biz/"
+
+msgid "preview"
+msgstr "pregled"
+
+msgid "delete"
+msgstr "obriši"
+
+msgid "sources"
+msgstr "izvori"
+
+msgid "web forms"
+msgstr "web forme"
+
+msgid "staging folders"
+msgstr "osnovni folderi"
+
+msgid "watch folders"
+msgstr "pregled foldera"
+
+msgid "edit"
+msgstr "izmeni"
+
+msgid "add new source"
+msgstr "dodaj novi izvor"
+
+msgid "transformations"
+msgstr "transformacije"
+
+msgid "add transformation"
+msgstr "dodaj transformaciju"
+
+msgid "Document sources"
+msgstr "izvori dokumenata"
+
+msgid "upload new version"
+msgstr "podizanje nove verzije"
+
+msgid "thumbnail"
+msgstr "thumbnail"
+
+msgid "Expand compressed files"
+msgstr "Otpakuj kompresovane datoteke"
+
+msgid "Upload a compressed file's contained files as individual documents"
+msgstr "Ubacivanje kompresovane datoteke koja sadrži individualne dokumente"
+
+msgid "Staging file"
+msgstr "Osnovna datoteka"
+
+msgid "File"
+msgstr "Datoteka"
+
+msgid "Always"
+msgstr "Uvek"
+
+msgid "Never"
+msgstr "Nikada"
+
+msgid "Ask user"
+msgstr "Pitaj korisnika"
+
+msgid "Disk"
+msgstr "Disk"
+
+msgid "Database"
+msgstr "Baza podataka"
+
+msgid "Drive"
+msgstr "Drive"
+
+msgid "Network drive"
+msgstr "Network drive"
+
+msgid "User drive"
+msgstr "Korisnički drive"
+
+msgid "Envelope"
+msgstr "Koverat"
+
+msgid "Folder"
+msgstr "Folder"
+
+msgid "World"
+msgstr "Svet"
+
+msgid "Printer"
+msgstr "Štampač"
+
+msgid "Empty printer"
+msgstr "Isprazni štampač"
+
+msgid "web form"
+msgstr "web forma"
+
+msgid "server staging folder"
+msgstr "osnovni folder servera"
+
+msgid "server watch folder"
+msgstr "serverski folder za pregled"
+
+msgid "server staging folders"
+msgstr "osnovni folderi servera"
+
+msgid "server watch folders"
+msgstr "serverski folderi za pregled"
+
+msgid "title"
+msgstr "naslov"
+
+msgid "enabled"
+msgstr "omogućeno"
+
+msgid "whitelist"
+msgstr "bela lista"
+
+msgid "blacklist"
+msgstr "crna lista"
+
+msgid "icon"
+msgstr "ikonica"
+
+msgid "An icon to visually distinguish this source."
+msgstr "Ikona za vizuelno razlikovanje ovog izvora"
+
+msgid "folder path"
+msgstr "putanja foldera"
+
+msgid "Server side filesystem path."
+msgstr "Serverska putanja na filesystem-u"
+
+msgid "preview width"
+msgstr "pregledaj širinu"
+
+msgid "Width value to be passed to the converter backend."
+msgstr "Vrednost širine za konvertovanje na backend-u."
+
+msgid "preview height"
+msgstr "pregledaj visinu"
+
+msgid "Height value to be passed to the converter backend."
+msgstr "Vrednost visine za konvertovanje na backend-u."
+
+msgid "uncompress"
+msgstr "dekompresuj"
+
+msgid "Whether to expand or not compressed archives."
+msgstr "Otpakuj ili ne kompresovane datoteke"
+
+msgid "delete after upload"
+msgstr "obriši nakon ubacivanja"
+
+msgid "Delete the file after is has been successfully uploaded."
+msgstr "Obriši datoteku nakon što bude uspešno ubačena."
+
+msgid "staging folder"
+msgstr "osnovni folder"
+
+msgid "interval"
+msgstr "interval"
+
+msgid "Inverval in seconds where the watch folder path is checked for new documents."
+msgstr "Inverval u sekundama gde se proverava putanja foldera za nove dokumente."
+
+msgid "watch folder"
+msgstr "vidi folder"
+
+msgid "Enter a valid value."
+msgstr "Unesi ispravnu vrednost"
+
+msgid "order"
+msgstr "redosled"
+
+msgid "transformation"
+msgstr "transformacija"
+
+msgid "arguments"
+msgstr "argumenti"
+
+msgid "Use dictionaries to indentify arguments, example: %s"
+msgstr "Koristi rečnik da identifikuješ argumente, npr.: %s"
+
+msgid "document source transformation"
+msgstr "transformacija izvora dokumenta"
+
+msgid "document source transformations"
+msgstr "transformacije izvora dokumenta"
+
+msgid "out of process"
+msgstr "izvan procesuiranja"
+
+msgid "Sources setup"
+msgstr "Podešavanje izvora"
+
+msgid "View existing document sources"
+msgstr "Pregledaj postojeće izvore dokumenata"
+
+msgid "Edit document sources"
+msgstr "Izmeni izvore dokumenata"
+
+msgid "Delete document sources"
+msgstr "Obriši izvore dokumenata"
+
+msgid "Create new document sources"
+msgstr "Kreiraj nove izvore dokumenata"
+
+msgid "Unable get list of staging files: %s"
+msgstr "Onemogući dobijanje liste osnovnih datoteka: %s"
+
+msgid "Unable to upload staging file: %s"
+msgstr "Onemogući ubacivanje osnovnih datoteka: %s"
+
+msgid "Unable to delete staging file: %s"
+msgstr "Nije moguće obrisati osnovnu datoteku: %s"
+
+msgid "Whitelist Blacklist validation error."
+msgstr "Bela lista - Crna lista greška u validaciji."
+
+msgid "here"
+msgstr "ovde"
+
+msgid "Upload sources"
+msgstr "Ubacivanje izvora"
+
+msgid "No interactive document sources have been defined or none have been enabled."
+msgstr "Nema definisanih interaktivnih izvora dokumenata ili nijedan nije omogućen."
+
+msgid "Click %(setup_link)s to add or enable some document sources."
+msgstr "Odaberi %(setup_link)s da dodaš ili omogućiš neke izvore dokumenata."
+
+msgid "New document version uploaded successfully."
+msgstr "Nova verzija dokumenta uspešno ubačena."
+
+msgid "File uploaded successfully."
+msgstr "Datoteka uspešno ubačena."
+
+msgid "File uncompressed successfully and uploaded as individual files."
+msgstr "Datoteka dekompresovana uspešno i sadržaj ubačen kao individualne datoteke."
+
+msgid "File was not a compressed file, uploaded as it was."
+msgstr "Datoteka nije kompresovana, ubačena onakva kakva je."
+
+msgid "New version uploads are not allowed for this document."
+msgstr "Ubacivanje nove verzije nije dozvoljeno za ovaj dokument."
+
+msgid "Unhandled exception: %s"
+msgstr "Neobrađen izuzetak: %s"
+
+msgid "upload a new version from source: %s"
+msgstr "ubacivanje nove verzije iz izvora: %s"
+
+msgid "upload a local document from source: %s"
+msgstr "ubacivanje lokalnog dokumenta iz izvora: %s"
+
+msgid "Document version from staging file: %s, uploaded successfully."
+msgstr "Verzija dokumenta iz osnovne datoteke: %s, uspešno ubačena."
+
+msgid "Staging file: %s, uploaded successfully."
+msgstr "Osnovna datoteka: %s, uspešno ubačena."
+
+msgid "Staging file: %s, uncompressed successfully and uploaded as individual files."
+msgstr ""
+"Osnovna datoteka: %s, uspešno dekompresovana, a sadržaj ubačen kao individualne "
+"datoteke."
+
+msgid "Staging file: %s, was not compressed, uploaded as a single file."
+msgstr "Osnovna datoteka: %s, nije dekompresovana, ubačena kao jedna zasebna datoteka."
+
+msgid "Staging file: %s, deleted successfully."
+msgstr "Osnovna datoteka: %s uspešno obrisana."
+
+msgid "upload a new version from staging source: %s"
+msgstr "ubacivanje nove verzije iz osnovnog izvora: %s"
+
+msgid "upload a document from staging source: %s"
+msgstr "ubacivanje dokumenta iz osnovnog izvora: %s"
+
+msgid "files in staging path"
+msgstr "datoteke u osnovnom izvoru"
+
+msgid "Current document type"
+msgstr "Tekući tip dokumenta"
+
+msgid "None"
+msgstr "Ništa"
+
+msgid "Current metadata"
+msgstr "Tekući meta podaci"
+
+msgid "Staging file transformation error: %(error)s"
+msgstr "Greška u transformaciji osnovne datoteke: %(error)s"
+
+msgid "Staging file delete successfully."
+msgstr "Osnovna datoteka uspešno obrisana."
+
+msgid "Staging file delete error; %s."
+msgstr "Greška u brisanju osnovne datoteke; %s."
+
+msgid "Source edited successfully"
+msgstr "Izvor uspešno izmenjen"
+
+msgid "Error editing source; %s"
+msgstr "Greška pri izmeni izvora; %s"
+
+msgid "edit source: %s"
+msgstr "izmeni izvor: %s"
+
+msgid "source"
+msgstr "izvor"
+
+msgid "Source \"%s\" deleted successfully."
+msgstr "Izvor \"%s\" uspešno obrisan."
+
+msgid "Error deleting source \"%(source)s\": %(error)s"
+msgstr "Greška pri izmjeni izvora \"%(source)s\": %(error)s"
+
+msgid "Are you sure you wish to delete the source: %s?"
+msgstr "Da li ste sigurni da želite da obrišete izvor: %s?"
+
+msgid "Source created successfully"
+msgstr "Izvor uspešno kreiran"
+
+msgid "Error creating source; %s"
+msgstr "Greška pri kreiranju izvora; %s"
+
+msgid "Create new source of type: %s"
+msgstr "Kreiraj novi tip izvora: %s"
+
+msgid "transformations for: %s"
+msgstr "transformacije za: %s"
+
+msgid "Source transformation edited successfully"
+msgstr "Uspešno izmenjena transformacija izvora."
+
+msgid "Error editing source transformation; %s"
+msgstr "Greška pri izmeni transformacije izvora; %s"
+
+msgid "Edit transformation: %s"
+msgstr "Izmeni transformaciju: %s"
+
+msgid "Source transformation deleted successfully."
+msgstr "Transformacija izvora uspešno obrisana."
+
+msgid "Error deleting source transformation; %(error)s"
+msgstr "Greška pri brisanju transformacije izvora; %(error)s"
+
+msgid "Are you sure you wish to delete source transformation \"%(transformation)s\""
+msgstr ""
+"Da li ste sigurni da želite da obrišete transformaciju izvora "
+"\"%(transformation)s\" "
+
+msgid "Source transformation created successfully"
+msgstr "Transformacija izvora uspešno kreirana."
+
+msgid "Error creating source transformation; %s"
+msgstr "Greška pri kreiranju transformacije izvora; %s"
+
+msgid "Create new transformation for source: %s"
+msgstr "Kreiraj novu transformaciju za izvor: %s"

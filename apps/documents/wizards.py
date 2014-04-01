@@ -32,11 +32,20 @@ class DocumentCreateWizard(BoundFormWizard):
 
     def __init__(self, *args, **kwargs):
         self.query_dict = {}
-        self.step_titles = kwargs.pop('step_titles', [
-            _(u'step 1 of 3: Document type'),
-            _(u'step 2 of 3: Metadata selection'),
-            _(u'step 3 of 3: Document metadata'),
-            ])
+        if kwargs.has_key('csv'):
+            self.csv = kwargs.pop('csv')
+        else:
+            self.csv = False
+        if self.csv == True:
+            self.step_titles = kwargs.pop('step_titles', [
+                _(u'step 1 of 2: Document type'),
+                ])
+        else:
+            self.step_titles = kwargs.pop('step_titles', [
+                _(u'step 1 of 3: Document type'),
+                _(u'step 2 of 3: Metadata selection'),
+                _(u'step 3 of 3: Document metadata'),
+                ])
 
         super(DocumentCreateWizard, self).__init__(*args, **kwargs)
 
@@ -78,6 +87,7 @@ class DocumentCreateWizard(BoundFormWizard):
     def done(self, request, form_list):
         if self.document_type:
             self.query_dict['document_type_id'] = self.document_type.pk
+            self.query_dict['csv'] = self.csv
 
         url = '?'.join([reverse('upload_interactive'), urlencode(self.query_dict, doseq=True)])
         return HttpResponseRedirect(url)

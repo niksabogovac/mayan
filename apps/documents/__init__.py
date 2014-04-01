@@ -63,6 +63,7 @@ register_history_type(HISTORY_DOCUMENT_DELETED)
 document_list = {'text': _(u'all documents'), 'view': 'document_list', 'famfam': 'page'}
 document_list_recent = {'text': _(u'recent documents'), 'view': 'document_list_recent', 'famfam': 'page'}
 document_create_multiple = {'text': _(u'upload new documents'), 'view': 'document_create_multiple', 'famfam': 'page_add', 'permissions': [PERMISSION_DOCUMENT_CREATE], 'children_view_regex': [r'upload_interactive']}
+document_create_multiple_csv = {'text': _(u'upload new documents using csv'), 'view': 'document_create_multiple_csv', 'famfam': 'page_add', 'permissions': [PERMISSION_DOCUMENT_CREATE], 'children_view_regex': [r'upload_interactive']}
 document_create_siblings = {'text': _(u'clone metadata'), 'view': 'document_create_siblings', 'args': 'object.id', 'famfam': 'page_copy', 'permissions': [PERMISSION_DOCUMENT_CREATE]}
 document_view_simple = {'text': _(u'details'), 'view': 'document_view_simple', 'args': 'object.id', 'famfam': 'page', 'permissions': [PERMISSION_DOCUMENT_VIEW]}
 document_view_advanced = {'text': _(u'properties'), 'view': 'document_view_advanced', 'args': 'object.id', 'famfam': 'page_gear', 'permissions': [PERMISSION_DOCUMENT_VIEW]}
@@ -72,6 +73,8 @@ document_edit = {'text': _(u'edit'), 'view': 'document_edit', 'args': 'object.id
 document_preview = {'text': _(u'preview'), 'class': 'fancybox', 'view': 'document_preview', 'args': 'object.id', 'famfam': 'magnifier', 'permissions': [PERMISSION_DOCUMENT_VIEW]}
 document_download = {'text': _(u'download'), 'view': 'document_download', 'args': 'object.id', 'famfam': 'page_save', 'permissions': [PERMISSION_DOCUMENT_DOWNLOAD]}
 document_multiple_download = {'text': _(u'download'), 'view': 'document_multiple_download', 'famfam': 'page_save', 'permissions': [PERMISSION_DOCUMENT_DOWNLOAD]}
+document_export_csv_all = {'text': _(u'export all metadata'), 'view': 'document_export_csv_all', 'famfam': 'page_save', 'permissions': [PERMISSION_DOCUMENT_DOWNLOAD]}
+document_export_csv_selected = {'text': _(u'export selected metadata'), 'view': 'document_export_csv_selected', 'famfam': 'page_save', 'permissions': [PERMISSION_DOCUMENT_DOWNLOAD]}
 document_version_download = {'text': _(u'download'), 'view': 'document_version_download', 'args': 'object.pk', 'famfam': 'page_save', 'permissions': [PERMISSION_DOCUMENT_DOWNLOAD]}
 document_find_duplicates = {'text': _(u'find duplicates'), 'view': 'document_find_duplicates', 'args': 'object.id', 'famfam': 'page_white_copy', 'permissions': [PERMISSION_DOCUMENT_VIEW]}
 document_find_all_duplicates = {'text': _(u'find all duplicates'), 'view': 'document_find_all_duplicates', 'famfam': 'page_white_copy', 'permissions': [PERMISSION_DOCUMENT_VIEW], 'description': _(u'Search all the documents\' checksums and return a list of the exact matches.')}
@@ -130,14 +133,29 @@ register_links([DocumentTypeFilename, 'document_type_filename_list', 'document_t
 
 # Register document links
 register_links(Document, [document_view_simple, document_edit, document_print, document_delete, document_download, document_find_duplicates, document_clear_transformations, document_create_siblings])
-register_multi_item_links(['document_find_duplicates', 'folder_view', 'index_instance_node_view', 'document_type_document_list', 'search', 'results', 'document_group_view', 'document_list', 'document_list_recent', 'tag_tagged_item_list'], [document_multiple_clear_transformations, document_multiple_delete, document_multiple_download])
+register_multi_item_links(
+                          ['document_find_duplicates', 
+                           'folder_view', 
+                           'index_instance_node_view', 
+                           'document_type_document_list', 
+                           'search', 
+                           'results', 
+                           'document_group_view', 
+                           'document_list', 
+                           'document_list_recent', 
+                           'tag_tagged_item_list'], 
+                          [document_multiple_clear_transformations, 
+                           document_multiple_delete, 
+                           document_multiple_download, 
+                           document_export_csv_all, 
+                           document_export_csv_selected])
 
 # Document Version links
 register_links(DocumentVersion, [document_version_revert, document_version_download])
 
-secondary_menu_links = [document_list_recent, document_list, document_create_multiple]
+secondary_menu_links = [document_list_recent, document_list, document_create_multiple, document_create_multiple_csv]
 
-register_links(['document_list_recent', 'document_list', 'document_create', 'document_create_multiple', 'upload_interactive', 'staging_file_delete'], secondary_menu_links, menu_name='secondary_menu')
+register_links(['document_list_recent', 'document_list', 'document_create', 'document_create_multiple', 'document_create_multiple_csv', 'upload_interactive', 'staging_file_delete'], secondary_menu_links, menu_name='secondary_menu')
 register_links(Document, secondary_menu_links, menu_name='secondary_menu')
 
 # Document page links
@@ -205,7 +223,7 @@ class_permissions(Document, [
     PERMISSION_HISTORY_VIEW
 ])
 
-document_search = SearchModel('documents', 'Document')
+document_search = SearchModel('documents', 'Document', permission=PERMISSION_DOCUMENT_VIEW)
 document_search.add_model_field('document_type__name', label=_(u'Document type'))
 document_search.add_model_field('documentversion__mimetype', label=_(u'MIME type'))
 document_search.add_model_field('documentversion__filename', label=_(u'Filename'))

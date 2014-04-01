@@ -1,0 +1,709 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Mayan EDMS\n"
+"Report-Msgid-Bugs-To: http://github.com/rosarior/mayan/issues\n"
+"POT-Creation-Date: 2012-12-12 01:48-0400\n"
+"PO-Revision-Date: Wed Oct 23 2013 10:54:06 GMT+0200 (Central Europe Daylight "
+"Time)\n"
+"Last-Translator: jomer <jomer@ping.ba>\n"
+"Language-Team: Bosnian (Bosnia and Herzegovina) (http://www.transifex."
+"com/projects/p/mayan-edms/language/bs_BA/)\n"
+"Language: bs_BA\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 "
+"&& (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Loco-Source-Locale: sr_RS\n"
+"X-Loco-Parser: loco_parse_po\n"
+"X-Loco-Target-Locale: bs_BA\n"
+"X-Generator: Loco - https://localise.biz/"
+
+msgid "file formats"
+msgstr "formati datoteka"
+
+msgid "Resize"
+msgstr "Promeni veličinu"
+
+msgid "Resize."
+msgstr "Promeni veličinu."
+
+msgid "width"
+msgstr "širina"
+
+msgid "height"
+msgstr "visina"
+
+msgid "Rotate"
+msgstr "Rotiraj"
+
+msgid "Rotate by n degress."
+msgstr "Rotiraj za n stepeni."
+
+msgid "degrees"
+msgstr "stepeni"
+
+msgid "Density"
+msgstr "Gustina"
+
+msgid "Change the resolution (ie: DPI) without resizing."
+msgstr "Promeni rezoluciju (na pr: DPI) bez promene veličine."
+
+msgid "Zoom"
+msgstr "Uvećaj"
+
+msgid "Zoom by n percent."
+msgstr "Uvećaj za n procenat/a."
+
+msgid "percent"
+msgstr "procenat"
+
+msgid "Hasselblad Photo RAW, CFV/H3D39II"
+msgstr "Hasselblad Photo RAW, CFV/H3D39II"
+
+msgid "Photoshop resource format"
+msgstr "Format photoshop izvora"
+
+msgid "Photoshop resource text format"
+msgstr "Photoshop izvor tekstualnog formata."
+
+msgid "Photoshop resource wide text format"
+msgstr "Photoshop izvor širokog tekstualnog formata."
+
+msgid "Raw alpha samples"
+msgstr "Neobrađeni alfa uzorci"
+
+msgid "Adobe Illustrator CS2"
+msgstr "Adobe Illustrator CS2"
+
+msgid "Raw application information"
+msgstr "Neobrađene informacije aplikacije"
+
+msgid "Raw JPEG binary data"
+msgstr "Neobrađeni JPEG binarni podaci"
+
+msgid "PFS: 1st Publisher Clip Art"
+msgstr "PFS: 1st Publisher Clip Art"
+
+msgid "Sony Alpha DSLR Raw Image Format"
+msgstr "Sony Alpha DSLR Raw Format slike"
+
+msgid "Microsoft Audio/Visual Interleaved"
+msgstr "Microsoft Audio/Video preplitanje"
+
+msgid "AVS X image"
+msgstr "AVS X slika"
+
+msgid "Raw blue samples"
+msgstr "Neobrađen plavi uzorak"
+
+msgid "Raw blue, green, and red samples"
+msgstr "Neobrađeni plavi, zeleni i crveni uzorci"
+
+msgid "Raw blue, green, red and alpha samples"
+msgstr "Neobrađeni plavi, zeleni, crveni i alfa uzorci"
+
+msgid "Microsoft Windows bitmap image"
+msgstr "Microsoft Windows bitmap slika"
+
+msgid "Microsoft Windows bitmap image version 2"
+msgstr "Microsoft Windows bitmap slika verzije 2"
+
+msgid "Microsoft Windows bitmap image version 3"
+msgstr "Microsoft Windows bitmap slika verzije 3"
+
+msgid "BRF ASCII Braille format"
+msgstr "BRF ASCII Braille format"
+
+msgid "Raw blue, red, and green samples"
+msgstr "Neobrađeni plavi, crveni i zeleni uzorci"
+
+msgid "Raw cyan samples"
+msgstr "Neobrađeni cijan uzorci"
+
+msgid "Magick Persistent Cache image format"
+msgstr "Magick Persistent Cache format slike"
+
+msgid "Continuous Acquisition and Life-cycle Support Type 1 image"
+msgstr "Continuous Acquisition i Life-cycle Support tip 1 slika"
+
+msgid "Image caption"
+msgstr "Natpis slike"
+
+msgid "Cineon Image File"
+msgstr "Cineon Image File"
+
+msgid "Cisco IP phone image format"
+msgstr "Cisco IP phone format slike"
+
+msgid "Image Clip Mask"
+msgstr "Maska za sečenje slike"
+
+msgid "Raw cyan, magenta, yellow, and black samples"
+msgstr "Neobrađeni cijan, purpurnocrveni, žuti i crni uzorci"
+
+msgid "Raw cyan, magenta, yellow, black, and opacity samples"
+msgstr "Neobrađeni cijan, purpurnocrveni, žuti, crni i neprovidni uzorci"
+
+msgid "Canon Digital Camera Raw Image Format"
+msgstr "Canon Digital Camera Raw format slike"
+
+msgid "Microsoft Cursor Icon"
+msgstr "Microsoft Cursor ikona"
+
+msgid "DR Halo"
+msgstr "DR Halo"
+
+msgid "Digital Imaging and Communications in Medicine image"
+msgstr "Digital Imaging and Communications in Medicine slika"
+
+msgid "Kodak Digital Camera Raw Image File"
+msgstr "Kodak Digital Camera Raw Image datoteka"
+
+msgid "ZSoft IBM PC multi-page Paintbrush"
+msgstr "ZSoft IBM PC multi-page Paintbrush"
+
+msgid "Microsoft DirectDraw Surface"
+msgstr "Microsoft DirectDraw Surface"
+
+msgid "Multi-face font package (Freetype 2.4.2)"
+msgstr "Multi-lice font paket (FreeType 2.4.2)"
+
+msgid "Déjà vu"
+msgstr "Deja Vu"
+
+msgid "Adobe Digital Negative"
+msgstr "Adobe Digital Negative"
+
+msgid "Graphviz"
+msgstr "Graphviz"
+
+msgid "SMPTE 268M-2003 (DPX 2.0)"
+msgstr "SMPTE 268M-2003 (DPX 2.0)"
+
+msgid "Encapsulated Portable Document Format"
+msgstr "Encapsulated Portable Document format"
+
+msgid "Adobe Encapsulated PostScript Interchange format"
+msgstr "Adobe Encapsulated PostScript Interchange format"
+
+msgid "Adobe Encapsulated PostScript"
+msgstr "Adobe Encapsulated PostScript"
+
+msgid "Adobe Level II Encapsulated PostScript"
+msgstr "Adobe Level II Encapsulated PostScript"
+
+msgid "Adobe Level III Encapsulated PostScript"
+msgstr "Adobe Level III Encapsulated PostScript"
+
+msgid "Adobe Encapsulated PostScript with TIFF preview"
+msgstr "Adobe Encapsulated PostScript sa TIFF pregledom"
+
+msgid "Adobe Level II Encapsulated PostScript with TIFF preview"
+msgstr "Adobe PostScript Level II Encapsulated sa TIFF pregledom"
+
+msgid "Adobe Level III Encapsulated PostScript with TIFF preview"
+msgstr "Adobe PostScript Level III Encapsulated sa TIFF pregledom"
+
+msgid "Epson RAW Format"
+msgstr "Epson RAW format"
+
+msgid "Exif digital camera binary data"
+msgstr "Exif digital camera binarni podatak"
+
+msgid "High Dynamic-range (HDR)"
+msgstr "High Dynamic-range (HDR)"
+
+msgid "Group 3 FAX (Not TIFF Group3 FAX)"
+msgstr "Group 3 FAX ( ne TIFF Group3 FAX)"
+
+msgid "Autodesk FLI animations file"
+msgstr "Autodesk FLI animacijska datoteka"
+
+msgid "Autodesk FLC animations file"
+msgstr "Autodesk FLC animacijska datoteka"
+
+msgid "Flexible Image Transport System"
+msgstr "Flexible Image Transport System"
+
+msgid "Kodak FlashPix file"
+msgstr "Kodak FlashPix datoteka"
+
+msgid "Plasma fractal image"
+msgstr "Fraktalna plazma slika"
+
+msgid "Raw green samples"
+msgstr "Neobrađeni zeleni uzorci"
+
+msgid "Group 3 FAX"
+msgstr "Group 3 FAX"
+
+msgid "Raw green, blue, and red samples"
+msgstr "Neobrađeni zeleni, plavi i crveni uzorci"
+
+msgid "GIMP brush file"
+msgstr "GIMP brush datoteka"
+
+msgid "CompuServe graphics interchange format (version 89a)"
+msgstr "CompuServe graphics interchange format (verzija 89a)"
+
+msgid "CompuServe graphics interchange format (version 87a)"
+msgstr "CompuServe graphics interchange format (verzija 87a)"
+
+msgid "Gradual passing from one shade to another"
+msgstr "Postepeni prelaz iz jedne nijanse u drugu"
+
+msgid "Raw gray samples"
+msgstr "Neobrađeni sivi uzorci"
+
+msgid "Raw green, red, and blue samples"
+msgstr "Neobrađeni zeleni, crveni i plavi uzorci"
+
+msgid "Raw CCITT Group4"
+msgstr "Raw CCITT Group4"
+
+msgid "Histogram of the image"
+msgstr "Histogram slike"
+
+msgid "HRZ: Slow scan TV"
+msgstr "HRZ: Slow scan TV"
+
+msgid "Hypertext Markup Language and a client-side image map"
+msgstr "Hypertext Markup Language i mapiranje slike na strani klijenta"
+
+msgid "Truevision Targa image"
+msgstr "TrueVision Targa slika"
+
+msgid "ICC Color Profile"
+msgstr "ICC profil boja"
+
+msgid "Microsoft Icon"
+msgstr "Microsoft ikona"
+
+msgid "Hald CLUT identity image"
+msgstr "Hald CLUT identity slika"
+
+msgid "LabEye image format"
+msgstr "LabEye format slike"
+
+msgid "GraphicsMagick Embedded Image"
+msgstr "GraphicsMagick ubačena slika"
+
+msgid "The image format and characteristics"
+msgstr "Format slike i karakteristike"
+
+msgid "Base64-encoded inline images"
+msgstr "Base64-encoded inline slike"
+
+msgid "IPL Image Sequence"
+msgstr "IPL sekvenca slike"
+
+msgid "IPTC Newsphoto"
+msgstr "IPTC Newsphoto"
+
+msgid "IPTC Newsphoto text format"
+msgstr "IPTC Newsphoto tekst format"
+
+msgid "ISO/TR 11548-1 format"
+msgstr "ISO/TR 11548-1 format"
+
+msgid "JPEG-2000 Code Stream Syntax"
+msgstr "JPEG-2000 Code Stream Syntax"
+
+msgid "JPEG Network Graphics (libpng 1.2.42,1.2.44, zlib 1.2.3.3,1.2.3.4)"
+msgstr "JPEG Network Graphics (libpng 1.2.42,1.2.44, zlib 1.2.3.3,1.2.3.4)"
+
+msgid "JPEG-2000 JP2 File Format Syntax"
+msgstr "JPEG-2000 JP2 File Format Syntax"
+
+msgid "Joint Photographic Experts Group JFIF format (IJG JPEG 62)"
+msgstr "Joint Photographic Experts Group JFIF format (IJG JPEG 62)"
+
+msgid "JPEG-2000 File Format Syntax"
+msgstr "JPEG-2000 File Format Syntax"
+
+msgid "Raw black samples"
+msgstr "Neobrađeni crni uzorci"
+
+msgid "Kodak Digital Camera Raw Image Format"
+msgstr "Kodak Digital Camera Raw format slike"
+
+msgid "Image label"
+msgstr "Oznaka slike"
+
+msgid "Raw magenta samples"
+msgstr "Neobrađeni purpurnocrveni uzorci"
+
+msgid "MPEG Video Stream"
+msgstr "MPEG Video Stream"
+
+msgid "Raw MPEG-4 Video"
+msgstr "Raw MPEG-4 Video"
+
+msgid "Colormap intensities and indices"
+msgstr "Intenziteti i indeksi mape boja"
+
+msgid "MATLAB image format"
+msgstr "MATLAB format slike"
+
+msgid "MATTE raw opacity format"
+msgstr "MATTE raw opacity format"
+
+msgid "8-bit McIdas area file"
+msgstr "8-bitna McIdas datoteka područja"
+
+msgid "Microsoft Image Composer (MIC) file"
+msgstr "Microsoft Image Composer (MIC) datoteka"
+
+msgid "Magick Image File Format"
+msgstr "Magick Image format datoteka"
+
+msgid "Multiple-image Network Graphics (libpng 1.2.42,1.2.44, zlib 1.2.3.3,1.2.3.4)"
+msgstr "Multiple-image Network Graphics (libpng 1.2.42,1.2.44, zlib 1.2.3.3,1.2.3.4)"
+
+msgid "Raw Bi-level bitmap in least-significant-byte first order"
+msgstr "Neobrađeni Bi-level bitmap u poretku najmanje značajanih bajtova"
+
+msgid "MPEG-4 Video Stream"
+msgstr "MPEG-4 Video Stream"
+
+msgid "Sony (Minolta) Raw Image File"
+msgstr "Sony (Minolta) RAW datoteka slike"
+
+msgid "Magick Scripting Language"
+msgstr "Magick Scripting jezik"
+
+msgid "Windows 1 and 2 MSP file format"
+msgstr "Windows 1 and 2 MSP format datoteke"
+
+msgid "ImageMagick's own SVG internal renderer"
+msgstr "ImageMagick vlastiti SVG interni renderer"
+
+msgid "MTV Raytracing image format"
+msgstr "MTV Raytracing format slike"
+
+msgid "Magick Vector Graphics"
+msgstr "Magick Vector Graphics"
+
+msgid "Nikon Digital SLR Camera Raw Image File"
+msgstr "Nikon Digital SLR Camera Raw datoteka slike"
+
+msgid "Constant image of uniform color"
+msgstr "Konstantna slika ujednačenih boja"
+
+msgid "Raw opacity samples"
+msgstr "Neobrađeni neprovidni uzorci"
+
+msgid "Olympus Digital Camera Raw Image File"
+msgstr "Olympus Digital Camera Raw format slike"
+
+msgid "On-the-air bitmap"
+msgstr "On-the-air bitmap"
+
+msgid "Open Type font (Freetype 2.4.2)"
+msgstr "Open Type font (Freetype 2.4.2)"
+
+msgid "Xv thumbnail format"
+msgstr "Xv thumbnail format"
+
+msgid "16bit/pixel interleaved YUV"
+msgstr "16bit/pixel interleaved YUV"
+
+msgid "Palm pixmap"
+msgstr "Palm pixmap"
+
+msgid "Common 2-dimensional bitmap format"
+msgstr "Common 2-dimensional bitmap format"
+
+msgid "Predefined pattern"
+msgstr "Unapred definisani obrazac"
+
+msgid "Portable bitmap format (black and white)"
+msgstr "Prenosni bitmap format (crna i bela)"
+
+msgid "Photo CD"
+msgstr "Foto CD"
+
+msgid "Page Control Language"
+msgstr "Page Control Language"
+
+msgid "Apple Macintosh QuickDraw/PICT"
+msgstr "Apple Macintosh QuickDraw/PICT"
+
+msgid "ZSoft IBM PC Paintbrush"
+msgstr "ZSoft IBM PC Paintbrush"
+
+msgid "Palm Database ImageViewer Format"
+msgstr "Palm Database ImageViewer format"
+
+msgid "Portable Document Format"
+msgstr "Portable Document Format"
+
+msgid "Portable Document Archive Format"
+msgstr "Portable Document Archive Format"
+
+msgid "Pentax Electronic File"
+msgstr "Pentax Electronic File"
+
+msgid "Embrid Embroidery Format"
+msgstr "Embrid Embroidery Format"
+
+msgid "Postscript Type 1 font (ASCII) (Freetype 2.4.2)"
+msgstr "Postscript tip 1 font (ASCII) (Freetype 2.4.2)"
+
+msgid "Postscript Type 1 font (binary) (Freetype 2.4.2)"
+msgstr "Postscript tip 1 font (binary) (Freetype 2.4.2)"
+
+msgid "Portable float format"
+msgstr "Portable float format"
+
+msgid "Portable graymap format (gray scale)"
+msgstr "Portable graymap format (sivi tonovi)"
+
+msgid "JPEG-2000 VM Format"
+msgstr "JPEG-2000 VM format"
+
+msgid "Personal Icon"
+msgstr "Lična ikona"
+
+msgid "Alias/Wavefront RLE image format"
+msgstr "Alias/Wavefront RLE format slike"
+
+msgid "PIXAR raster file"
+msgstr "Pixar raster datoteka"
+
+msgid "Joint Photographic Experts Group JFIF format (62)"
+msgstr "Joint Photographic Experts Group JFIF format (62)"
+
+msgid "Portable Network Graphics (libpng 1.2.42,1.2.44, zlib 1.2.3.3,1.2.3.4)"
+msgstr "Portable Network Graphics (libpng 1.2.42,1.2.44, zlib 1.2.3.3,1.2.3.4)"
+
+msgid "24-bit RGB PNG, opaque only (libpng 1.2.42,1.2.44, zlib 1.2.3.3,1.2.3.4)"
+msgstr "24-bit RGB PNG, opaque only (libpng 1.2.42,1.2.44, zlib 1.2.3.3,1.2.3.4)"
+
+msgid ""
+"32-bit RGBA PNG, semitransparency OK (libpng 1.2.42,1.2.44, zlib 1.2.3.3,1.2.3."
+"4)"
+msgstr ""
+"32-bit RGBA PNG, semitransparency OK (libpng 1.2.42,1.2.44, zlib 1.2.3.3,1.2.3."
+"4)"
+
+msgid ""
+"8-bit indexed PNG, binary transparency only (libpng 1.2.42,1.2.44, zlib 1.2.3.3,"
+"1.2.3.4)"
+msgstr ""
+"8-bit indexed PNG, binary transparency only (libpng 1.2.42,1.2.44, zlib 1.2.3.3,"
+"1.2.3.4)"
+
+msgid "Portable anymap"
+msgstr "Portable anymap"
+
+msgid "Portable pixmap format (color)"
+msgstr "Prenosni pixmap format (u boji)"
+
+msgid "Show a preview an image enhancement, effect, or f/x"
+msgstr "Pokaži pregled poboljšanja slike, efekat ili f/x"
+
+msgid "Adobe PostScript"
+msgstr "Adobe PostScript"
+
+msgid "Adobe Level II PostScript"
+msgstr "Adobe Level II PostScript"
+
+msgid "Adobe Level III PostScript"
+msgstr "Adobe Level III PostScript"
+
+msgid "Adobe Large Document Format"
+msgstr "Adobe Large Document format"
+
+msgid "Adobe Photoshop bitmap"
+msgstr "Adobe Photoshop bitmap"
+
+msgid "Pyramid encoded TIFF"
+msgstr "Pyramid encoded TIFF"
+
+msgid "Seattle Film Works"
+msgstr "Seattle Film Works"
+
+msgid "Raw red samples"
+msgstr "Neobrađeni crveni uzorci"
+
+msgid "Fuji CCD-RAW Graphic File"
+msgstr "Fuji CCD-RAW Graphic File"
+
+msgid "SUN Rasterfile"
+msgstr "SUN Rasterfile"
+
+msgid "Raw red, blue, and green samples"
+msgstr "Neobrađeni crveni, plavi i zeleni uzorci"
+
+msgid "Raw red, green, and blue samples"
+msgstr "Neobrađeni crveni, zeleni i plavi uzorci"
+
+msgid "Raw red, green, blue, and matte samples"
+msgstr "Neobrađeni crveni, zeleni, plavi i mat uzorci"
+
+msgid "Raw red, green, blue, and opacity samples"
+msgstr "Neobrađeni crveni, zeleni, plavi i neprovidni uzorci"
+
+msgid "Alias/Wavefront image"
+msgstr "Alias​​/Wavefront slika"
+
+msgid "Utah Run length encoded image"
+msgstr "Utah Run length kodirana slika"
+
+msgid "ZX-Spectrum SCREEN$"
+msgstr "ZX-Spectrum SCREEN$"
+
+msgid "Scitex HandShake"
+msgstr "Scitex HandShake"
+
+msgid "Irix RGB image"
+msgstr "Irix RGB slika"
+
+msgid "Sony Raw Format 2"
+msgstr "Sony Raw Format 2"
+
+msgid "Sony Raw Format"
+msgstr "Sony Raw Format"
+
+msgid "Steganographic image"
+msgstr "Steganographic slika"
+
+msgid "Scalable Vector Graphics (XML 2.7.6, RSVG 2.32.0)"
+msgstr "Scalable Vector Graphics (XML 2.7.6, RSVG 2.32.0)"
+
+msgid "Scalable Vector Graphics (ZIP compressed) (XML 2.7.6, RSVG 2.32.0)"
+msgstr "Scalable Vector Graphics (ZIP compressed) (XML 2.7.6, RSVG 2.32.0)"
+
+msgid "Text"
+msgstr "Tekst"
+
+msgid "EXIF Profile Thumbnail"
+msgstr "EXIF Profile Thumbnail"
+
+msgid "Tagged Image File Format (LIBTIFF, Version 3.9.4)"
+msgstr "Tagged Image File Format (LIBTIFF, Version 3.9.4)"
+
+msgid "Tagged Image File Format (64-bit) (LIBTIFF, Version 3.9.4)"
+msgstr "Tagged Image File Format (64-bit) (LIBTIFF, Version 3.9.4)"
+
+msgid "Tile image with a texture"
+msgstr "Tile slika sa teksturom"
+
+msgid "PSX TIM"
+msgstr "PSX TIM"
+
+msgid "TOPOL X Image"
+msgstr "TOPOL X slika"
+
+msgid "TrueType font collection (Freetype 2.4.2)"
+msgstr "TrueType font kolekcija (FreeType 2.4.2)"
+
+msgid "TrueType font (Freetype 2.4.2)"
+msgstr "TrueType font (Freetype 2.4.2)"
+
+msgid "Unicode Text format"
+msgstr "Unicode tekst format"
+
+msgid "X-Motif UIL table"
+msgstr "X-Motif UIL tabela"
+
+msgid "VICAR rasterfile format"
+msgstr "VICAR rasterfile format"
+
+msgid "Visual Image Directory"
+msgstr "Visual Image Directory"
+
+msgid "Khoros Visualization image"
+msgstr "Khoros Visualization image"
+
+msgid "Wireless Bitmap (level 0) image"
+msgstr "Wireless Bitmap (nivo 0) slika"
+
+msgid "Windows Meta File"
+msgstr "Windows Meta File"
+
+msgid "Word Perfect Graphics"
+msgstr "Word Perfect Graphics"
+
+msgid "Windows Media Video"
+msgstr "Windows Media Video"
+
+msgid "Compressed Windows Meta File"
+msgstr "Compressed Windows Meta File"
+
+msgid "X Window System"
+msgstr "X Window System"
+
+msgid "Foveon X3 (Sigma/Polaroid) Raw picture file"
+msgstr "Foveon X3 (Sigma/Polaroid) Raw datoteka slike"
+
+msgid "X Windows system bitmap (black and white)"
+msgstr "X Windows system bitmap (crno i bijelo)"
+
+msgid "Constant image uniform color"
+msgstr "Konstantna ujednačena boja slike"
+
+msgid "GIMP image"
+msgstr "GIMP slika"
+
+msgid "Adobe XML metadata"
+msgstr "Adobe XML metadata"
+
+msgid "X Windows system pixmap (color)"
+msgstr "X Windows sistem pixmap (u boji)"
+
+msgid "Microsoft XML Paper Specification"
+msgstr "Microsoft XML Paper Specification"
+
+msgid "XV thumbnail file"
+msgstr "XV thumbnail datoteka"
+
+msgid "X Windows system window dump (color)"
+msgstr "X Windows system window dump (u boji)"
+
+msgid "Raw yellow samples"
+msgstr "Neobrađeni žuti uzorci"
+
+msgid "CCIR 601 4:1:1 or 4:2:2 (8-bit only)"
+msgstr "CCIR 601 4:1:1 or 4:2:2 (8-bit samo)"
+
+msgid "suported file formats"
+msgstr "podržani formati datoteka"
+
+msgid "name"
+msgstr "naziv"
+
+msgid "description"
+msgstr "opis"
+
+msgid "File path to imagemagick's convert program."
+msgstr "Put do imagemagick's programa za konverziju."
+
+msgid "File path to imagemagick's identify program."
+msgstr "Put do imagemagick's identifikacijskog programa."
+
+msgid "File path to graphicsmagick's program."
+msgstr "Put do graphicsmagick's programa."
+
+msgid ""
+"Graphics conversion backend to use.  Options are: converter.backends."
+"imagemagick, converter.backends.graphicsmagick and converter.backends.python."
+msgstr ""
+"Grafička konverzija koristi backend. Opcije su: converter.backends.imagemagick, "
+"converter.backends.graphicsmagick i converter.backends.python."
+
+msgid "Path to the libreoffice program."
+msgstr "Staza do LibreOffice programa."
+
+msgid "Help"
+msgstr "Pomoć"
+
+msgid ""
+"These are the file formats supported by the currently selected converter "
+"backend.  In this case: '%(backend)s'"
+msgstr ""
+"Ovo su formati datoteka podržani od trenutno selektovanog backend konvertera. U "
+"ovom slučaju: '%(backend)s'"

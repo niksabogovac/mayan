@@ -1,0 +1,174 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Mayan EDMS\n"
+"Report-Msgid-Bugs-To: http://github.com/rosarior/mayan/issues\n"
+"POT-Creation-Date: 2012-12-12 01:48-0400\n"
+"PO-Revision-Date: Mon Oct 21 2013 09:37:33 GMT+0200 (Central Europe Daylight "
+"Time)\n"
+"Last-Translator: jomer <jomer@ping.ba>\n"
+"Language-Team: Bosnian (Bosnia and Herzegovina) (http://www.transifex."
+"com/projects/p/mayan-edms/language/bs_BA/)\n"
+"Language: bs_BA\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 "
+"&& (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Loco-Source-Locale: sr_RS\n"
+"X-Loco-Parser: loco_parse_po\n"
+"X-Loco-Target-Locale: bs_BA\n"
+"X-Generator: Loco - https://localise.biz/"
+
+msgid "ACLs"
+msgstr "ACLs"
+
+msgid "details"
+msgstr "detalji"
+
+msgid "grant"
+msgstr "odobriti"
+
+msgid "revoke"
+msgstr "ukinuti"
+
+msgid "New holder"
+msgstr "Novi nosilac"
+
+msgid "Default ACLs"
+msgstr "Difoltne ACLs"
+
+msgid "List of classes"
+msgstr "Lista klasa"
+
+msgid "ACLs for class"
+msgstr "ACLs za klasu"
+
+msgid "Users"
+msgstr "Korisnici"
+
+msgid "Groups"
+msgstr "Grupe"
+
+msgid "Roles"
+msgstr "Role"
+
+msgid "Special"
+msgstr "Posebno"
+
+msgid "Insufficient access."
+msgstr "Nedovoljne dozvole."
+
+msgid "permission"
+msgstr "dozvole"
+
+msgid "access entry"
+msgstr "pristupni unos"
+
+msgid "access entries"
+msgstr "pristupni unosi"
+
+msgid "default access entry"
+msgstr "difoltni pristupni unos"
+
+msgid "default access entries"
+msgstr "difoltni pristupni unosi"
+
+msgid "Creator"
+msgstr "Kreator"
+
+msgid "creator"
+msgstr "kreator"
+
+msgid "Access control lists"
+msgstr "Liste kontrole pristupa (ACLs)"
+
+msgid "Edit ACLs"
+msgstr "Izmeniti ACLs"
+
+msgid "View ACLs"
+msgstr "Pregledati ACLs"
+
+msgid "Edit class default ACLs"
+msgstr "Izmeniti difoltne ACLs klase"
+
+msgid "View class default ACLs"
+msgstr "Pregledati difoltne ACLs klase"
+
+msgid "access control lists for: %s"
+msgstr "lista kontrole pristupa (ACL) za: %s"
+
+msgid "holder"
+msgstr "nosilac"
+
+msgid "permissions"
+msgstr "dozvole"
+
+msgid "permissions available to: %(actor)s for %(obj)s"
+msgstr "važeće dozvole za: %(actor)s prema %(obj)s"
+
+msgid "namespace"
+msgstr "prostor za ime"
+
+msgid "label"
+msgstr "oznaka"
+
+msgid "has permission"
+msgstr "ima dozvolu"
+
+msgid ", "
+msgstr ", "
+
+msgid " for %s"
+msgstr " za %s"
+
+msgid " to %s"
+msgstr " prema %s"
+
+msgid "Are you sure you wish to grant the permission %(title_suffix)s?"
+msgstr "Da li ste sigurni da želite da odobrite dozvolu %(title_suffix)s?"
+
+msgid "Are you sure you wish to grant the permissions %(title_suffix)s?"
+msgstr "Da li ste sigurni da želite da odobrite dozvole %(title_suffix)s?"
+
+msgid "Permission \"%(permission)s\" granted to %(actor)s for %(object)s."
+msgstr "Dozvola \"%(permission)s\" odobrena za %(actor)s prema %(object)s."
+
+msgid "%(actor)s, already had the permission \"%(permission)s\" granted for %(object)s."
+msgstr "%(actor)s, već ima dozvolu \"%(permission)s\" prema %(object)s."
+
+msgid " from %s"
+msgstr " od %s"
+
+msgid "Are you sure you wish to revoke the permission %(title_suffix)s?"
+msgstr "Jeste li sigurni da želite da ukinete dozvolu %(title_suffix)s?"
+
+msgid "Are you sure you wish to revoke the permissions %(title_suffix)s?"
+msgstr "Jeste li sigurni da želite da ukinete dozvole %(title_suffix)s?"
+
+msgid "Permission \"%(permission)s\" revoked of %(actor)s for %(object)s."
+msgstr "Dozvola \"%(permission)s\" povučena za %(actor)s prema %(object)s."
+
+msgid "%(actor)s, didn't had the permission \"%(permission)s\" for %(object)s."
+msgstr "%(actor)s, nije imao/la dozvolu \"%(permission)s\" prema %(object)s."
+
+msgid "add new holder for: %s"
+msgstr "dodati novog nosioca za: %s"
+
+msgid "Select"
+msgstr "Odabrati"
+
+msgid "classes"
+msgstr "klase"
+
+msgid "class"
+msgstr "klasa"
+
+msgid "default access control lists for class: %s"
+msgstr "difoltna lista kontrole pristupa (ACL) za klasu: %s"
+
+msgid "permissions available to: %(actor)s for class %(class)s"
+msgstr "važeće dozvole za: %(actor)s za klasu %(class)s"
+
+msgid "add new holder for class: %s"
+msgstr "dodati novog nosioca za klasu: %s"

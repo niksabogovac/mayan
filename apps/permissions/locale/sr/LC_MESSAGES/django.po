@@ -1,0 +1,150 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Mayan EDMS\n"
+"Report-Msgid-Bugs-To: http://github.com/rosarior/mayan/issues\n"
+"POT-Creation-Date: 2012-12-12 01:49-0400\n"
+"PO-Revision-Date: Thu Oct 24 2013 15:12:54 GMT+0200 (Central Europe Daylight "
+"Time)\n"
+"Last-Translator: jomer <jomer@ping.ba>\n"
+"Language-Team: Bosnian (Bosnia and Herzegovina) (http://www.transifex."
+"com/projects/p/mayan-edms/language/bs_BA/)\n"
+"Language: bs_BA\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 "
+"&& (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Loco-Source-Locale: sr_RS\n"
+"X-Loco-Parser: loco_parse_po\n"
+"X-Loco-Target-Locale: bs_BA\n"
+"X-Generator: Loco - https://localise.biz/"
+
+msgid "roles"
+msgstr "role"
+
+msgid "create new role"
+msgstr "kreiraj novu rolu"
+
+msgid "edit"
+msgstr "izmeni"
+
+msgid "members"
+msgstr "članovi"
+
+msgid "role permissions"
+msgstr "dozvole za rolu"
+
+msgid "delete"
+msgstr "obriši"
+
+msgid "grant"
+msgstr "odobriti"
+
+msgid "revoke"
+msgstr "ukinuti"
+
+msgid "Insufficient permissions."
+msgstr "Nedovoljne dozvole."
+
+msgid "namespace"
+msgstr "namespace"
+
+msgid "name"
+msgstr "ime"
+
+msgid "permission"
+msgstr "dozvola"
+
+msgid "permissions"
+msgstr "dozvole"
+
+msgid "permission holder"
+msgstr "nosilac dozvole"
+
+msgid "permission holders"
+msgstr "nosioci dozvole"
+
+msgid "label"
+msgstr "oznaka"
+
+msgid "role"
+msgstr "rola"
+
+msgid "role member"
+msgstr "član role"
+
+msgid "role members"
+msgstr "članovi role"
+
+msgid "Permissions"
+msgstr "Dozvole"
+
+msgid "View roles"
+msgstr "Pregledaj role"
+
+msgid "Edit roles"
+msgstr "Izmeni role"
+
+msgid "Create roles"
+msgstr "Kreiraj role"
+
+msgid "Delete roles"
+msgstr "Izbriši role"
+
+msgid "Grant permissions"
+msgstr "Odobri dozvole"
+
+msgid "Revoke permissions"
+msgstr "Ukini dozvole"
+
+msgid "has permission"
+msgstr "ima dozvolu"
+
+msgid " and "
+msgstr "i"
+
+msgid "%(permissions)s to %(requester)s"
+msgstr "%(permissions)s na %(requester)s"
+
+msgid "Permission \"%(permission)s\" granted to: %(requester)s."
+msgstr "Dozvola \"%(permission)s\" odobrena: %(requester)s."
+
+msgid "%(requester)s, already had the permission \"%(permission)s\" granted."
+msgstr "%(requester)s, već ima dozvolu \"%(permission)s\" odobrenu."
+
+msgid "Are you sure you wish to grant the %(permissions_label)s %(title_suffix)s?"
+msgstr "Da li ste sigurni da želite da odobrite %(permissions_label)s %(title_suffix)s?"
+
+msgid "Permission \"%(permission)s\" revoked from: %(requester)s."
+msgstr "Dozvola \"%(permission)s\" ukinuta od: %(requester)s."
+
+msgid "%(requester)s, doesn't have the permission \"%(permission)s\" granted."
+msgstr "%(requester)s, nema dozvolu \"%(permission)s\" odobrenu."
+
+msgid "Are you sure you wish to revoke the %(permissions_label)s %(title_suffix)s?"
+msgstr "Da li ste sigurni da želite da ukinete %(permissions_label)s %(title_suffix)s?"
+
+msgid "Users"
+msgstr "Korisnici"
+
+msgid "Groups"
+msgstr "Grupe"
+
+msgid "Special"
+msgstr "Poseban"
+
+msgid "non members of role: %s"
+msgstr "nisu članovi role: %s"
+
+msgid "members of role: %s"
+msgstr "članovi role: %s"
+
+msgid "Revoke"
+msgstr "Ukini"
+
+msgid "Grant"
+msgstr "Odobri"
+
+msgid "A list of existing roles that are automatically assigned to newly created users"
+msgstr "Popis postojećih rola koje su automatski dodeljene novonastalim korisnicima"

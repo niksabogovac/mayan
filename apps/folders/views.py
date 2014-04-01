@@ -1,30 +1,32 @@
 from __future__ import absolute_import
-
-import logging
-
-from django.utils.translation import ugettext_lazy as _
+from .forms import FolderForm, FolderListForm
+from .models import Folder
+from .permissions import PERMISSION_FOLDER_CREATE, PERMISSION_FOLDER_EDIT, \
+    PERMISSION_FOLDER_DELETE, PERMISSION_FOLDER_REMOVE_DOCUMENT, \
+    PERMISSION_FOLDER_VIEW, PERMISSION_FOLDER_ADD_DOCUMENT
+from acls.models import AccessEntry
+from acls.utils import apply_default_acls
+from acls.views import acl_list_for
+from common.utils import encapsulate
+from django.contrib import messages
+from django.core.exceptions import PermissionDenied
+from django.core.files.uploadedfile import SimpleUploadedFile
+from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
-from django.contrib import messages
-from django.core.urlresolvers import reverse
-from django.core.exceptions import PermissionDenied
-
+from django.utils.translation import ugettext_lazy as _
+from documents.models import Document, DocumentVersion
 from documents.permissions import PERMISSION_DOCUMENT_VIEW
-from documents.models import Document
 from documents.views import document_list
+from filetransfers.api import serve_file
+from folders.forms import FolderExportMetadataForm
+from metadata.models import DocumentMetadata
 from permissions import Permission
-from common.utils import encapsulate
-from acls.models import AccessEntry
-from acls.views import acl_list_for
-from acls.utils import apply_default_acls
-
-from .models import Folder
-from .forms import FolderForm, FolderListForm
-from .permissions import (PERMISSION_FOLDER_CREATE,
-    PERMISSION_FOLDER_EDIT, PERMISSION_FOLDER_DELETE,
-    PERMISSION_FOLDER_REMOVE_DOCUMENT, PERMISSION_FOLDER_VIEW,
-    PERMISSION_FOLDER_ADD_DOCUMENT)
+from sources import csv_file
+import datetime
+import logging
+import tempfile
 
 logger = logging.getLogger(__name__)
 
@@ -146,6 +148,72 @@ def folder_delete(request, folder_id):
     return render_to_response('generic_confirm.html', context,
         context_instance=RequestContext(request))
 
+def folder_export_csv(request, folder_id):
+    previous = request.POST.get('previous', request.GET.get('previous', request.META.get('HTTP_REFERER', '/')))
+    folder = get_object_or_404(Folder, pk=folder_id)
+    
+    try:
+        Permission.objects.check_permissions(request.user, [PERMISSION_FOLDER_VIEW])
+    except PermissionDenied:
+        AccessEntry.objects.check_access(PERMISSION_FOLDER_VIEW, request.user, folder)
+        
+    if request.method == 'POST':
+        form = FolderExportMetadataForm(request.POST)
+        if form.is_valid():
+            folder_documents = list(folder.documents.all())
+            
+            metadata_dict = {}
+            
+            for doc in folder_documents:
+                docs_metadata = DocumentMetadata.objects.filter(document=doc)
+                docs_metadata_dict = {}
+                for doc_metadata in docs_metadata:
+                    docs_metadata_dict[unicode(doc_metadata.metadata_type.name)] = unicode(doc_metadata.value)
+                metadata_dict[doc.filename] = docs_metadata_dict
+            
+            csv_file_content = tempfile.TemporaryFile()
+            csv_file_content.write(csv_file.generate_csv_str(metadata_dict))
+            csv_file_content.seek(0)
+            csv_file_to_upload = SimpleUploadedFile(name=unicode(form.cleaned_data['csv_filename']), content=csv_file_content.read(), content_type='text/csv')
+            
+            return serve_file(
+                        request,
+                        csv_file_to_upload,
+                        save_as=u'"%s"' % form.cleaned_data['csv_filename'],
+                        content_type='text/csv'
+                    )
+    else:
+        form = FolderExportMetadataForm()
+     
+    context = {
+        'form': form,
+        'title': _(u'Download folders metadata for ') + folder.title,
+        'submit_label': _(u'Download'),
+        'previous': previous,
+        'cancel_label': _(u'Return'),
+        #'disable_auto_focus': True,
+    }
+        
+    return render_to_response(
+        'generic_form.html',
+        context,
+        context_instance=RequestContext(request)
+    )
+        
+#    context = {
+#        'hide_links': True,
+#        'multi_select_as_buttons': True,
+#        'object': folder,
+#        'object_name': _(u'folder'),
+#        'show_sort':True,
+#    }
+#
+#    return document_list(
+#        request,
+#        object_list=folder.documents,
+#        title=_(u'documents in folder: %s') % folder,
+#        extra_context=context
+#    )
 
 def folder_view(request, folder_id):
     folder = get_object_or_404(Folder, pk=folder_id)
@@ -160,8 +228,10 @@ def folder_view(request, folder_id):
         'multi_select_as_buttons': True,
         'object': folder,
         'object_name': _(u'folder'),
+        'show_sort':True,
+        'check_documents_permissions': False
     }
-
+    
     return document_list(
         request,
         object_list=folder.documents,
@@ -314,4 +384,4 @@ def folder_acl_list(request, folder_pk):
 def folder_add_multiple_documents(request):
     return folder_add_document(
         request, document_id_list=request.GET.get('id_list', [])
-    )    
+    )

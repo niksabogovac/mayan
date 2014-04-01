@@ -1,0 +1,187 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Mayan EDMS\n"
+"Report-Msgid-Bugs-To: http://github.com/rosarior/mayan/issues\n"
+"POT-Creation-Date: 2012-12-12 01:48-0400\n"
+"PO-Revision-Date: Thu Oct 24 2013 10:47:13 GMT+0200 (Central Europe Daylight "
+"Time)\n"
+"Last-Translator: jomer <jomer@ping.ba>\n"
+"Language-Team: Bosnian (Bosnia and Herzegovina) (http://www.transifex."
+"com/projects/p/mayan-edms/language/bs_BA/)\n"
+"Language: bs_BA\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 "
+"&& (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Loco-Source-Locale: sr_RS\n"
+"X-Loco-Parser: loco_parse_po\n"
+"X-Loco-Target-Locale: bs_BA\n"
+"X-Generator: Loco - https://localise.biz/"
+
+msgid "folder list"
+msgstr "lista foldera"
+
+msgid "create folder"
+msgstr "kreiraj folder"
+
+msgid "edit"
+msgstr "izmeni"
+
+msgid "delete"
+msgstr "obriši"
+
+msgid "remove from folder"
+msgstr "ukloni iz foldera"
+
+msgid "folder documents"
+msgstr "dokumenti foldera"
+
+msgid "add to a folder"
+msgstr "dodaj u folder"
+
+msgid "add to folder"
+msgstr "dodati u folder"
+
+msgid "folders"
+msgstr "folderi"
+
+msgid "ACLs"
+msgstr "ACLs"
+
+msgid "Folder"
+msgstr "Folder"
+
+msgid "title"
+msgstr "naslov"
+
+msgid "user"
+msgstr "korisnik"
+
+msgid "datetime created"
+msgstr "datum i vreme kreiranja"
+
+msgid "folder"
+msgstr "folder"
+
+msgid "document"
+msgstr "dokument"
+
+msgid "folder document"
+msgstr "dokument foldera"
+
+msgid "folders documents"
+msgstr "dokumenti foldera"
+
+msgid "Folders"
+msgstr "Folderi"
+
+msgid "Create new folders"
+msgstr "Kreiraj nove foldere"
+
+msgid "Edit new folders"
+msgstr "Izmeniti nove foldere"
+
+msgid "Delete new folders"
+msgstr "Izbrisati nove foldere"
+
+msgid "Remove documents from folders"
+msgstr "Ukloniti dokumente iz foldera"
+
+msgid "View existing folders"
+msgstr "Pregledati postojeće foldere"
+
+msgid "Add documents to existing folders"
+msgstr "Dodati dokumente u postojeće foldere"
+
+msgid "created"
+msgstr "kreirano"
+
+msgid "documents"
+msgstr "dokumenti"
+
+msgid "Folder created successfully"
+msgstr "Folder uspešno kreiran"
+
+msgid "A folder named: %s, already exists."
+msgstr "Folder sa imenom: %s, već postoji."
+
+msgid "Folder edited successfully"
+msgstr "Folder uspešno izmenjen"
+
+msgid "Error editing folder; %s"
+msgstr "Greška pri izmeni foldera; %s"
+
+msgid "edit folder: %s"
+msgstr "izmeni folder: %s"
+
+msgid "Folder: %s deleted successfully."
+msgstr "Folder: %s uspešno obrisan."
+
+msgid "Folder: %(folder)s delete error: %(error)s"
+msgstr "Folder: %(folder)s greška pri brisanju: %(error)s"
+
+msgid "Are you sure you with to delete the folder: %s?"
+msgstr "Da li ste sigurni da želite da obrišete folder: %s?"
+
+msgid "documents in folder: %s"
+msgstr "dokumenti u folderu: %s"
+
+msgid "Must provide at least one document."
+msgstr "Mora biti barem jedan dokument."
+
+msgid "Document: %(document)s added to folder: %(folder)s successfully."
+msgstr "Dokument: %(document)s uspešno dodat u folder: %(folder)s ."
+
+msgid "Document: %(document)s is already in folder: %(folder)s."
+msgstr "Dokument: %(document)s je već u folderu: %(folder)s."
+
+msgid "Add document: %s to folder."
+msgstr "Dodati dokument: %s u folder."
+
+msgid "Add documents: %s to folder."
+msgstr "Dodati dokumente: %s u folder."
+
+msgid "folders containing: %s"
+msgstr "folderi sadrže: %s"
+
+msgid "Must provide at least one folder document."
+msgstr "Mora da postoji bar jedan folder dokumenata."
+
+msgid "Document: %s removed successfully."
+msgstr "Dokument \"%s\" uspešno uklonjen."
+
+msgid "Document: %(document)s delete error: %(error)s"
+msgstr "Dokument: %(document)s greška pri brisanju: %(error)s"
+
+msgid ""
+"Are you sure you wish to remove the document: %(document)s from the folder "
+"\"%(folder)s\"?"
+msgstr ""
+"Da li ste sigurni da želite da uklonite dokument: %(document)s iz foldera "
+"\"%(folder)s\"?"
+
+msgid ""
+"Are you sure you wish to remove the documents: %(documents)s from the folder "
+"\"%(folder)s\"?"
+msgstr ""
+"Da li ste sigurni da želite da uklonite dokumente: %(documents)s iz foldera "
+"\"%(folder)s\"?"
+
+msgid "What are folders?"
+msgstr "Šta su folderi?"
+
+msgid ""
+"These folders can also be described as user folders.  They are a way to let "
+"individual users create their own document organization methods.  Folders "
+"created by one user and the documents contained by them don't affect any other "
+"user folders or documents."
+msgstr ""
+"Ovi folderi se mogu opisati kao korisnički folderi. Oni su način da se "
+"pojedinim korisnicima omogući da imaju vlastitu metodu organizovanja dokumenata."
+" Folderi koje je kreirao jedan korisnik i dokumenati sadržani u njima ne utiču "
+"na foldere i dokumente bilo kojeg drugog korisnika."
+
+msgid "Add document to a folder"
+msgstr "Dodati dokument u folder"

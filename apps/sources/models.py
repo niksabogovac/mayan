@@ -1,33 +1,33 @@
 from __future__ import absolute_import
-
+from .compressed_file import CompressedFile, NotACompressedFile
+from .literals import SOURCE_CHOICES, SOURCE_CHOICES_PLURAL, \
+    SOURCE_INTERACTIVE_UNCOMPRESS_CHOICES, SOURCE_CHOICE_WEB_FORM, \
+    SOURCE_CHOICE_STAGING, SOURCE_ICON_DISK, SOURCE_ICON_DRIVE, SOURCE_ICON_CHOICES, \
+    SOURCE_CHOICE_WATCH, SOURCE_UNCOMPRESS_CHOICES, SOURCE_UNCOMPRESS_CHOICE_Y
+from .managers import SourceTransformationManager
+from acls.utils import apply_default_acls
 from ast import literal_eval
-import logging
-
-from django.db import models
-from django.utils.translation import ugettext_lazy as _
-from django.contrib.contenttypes.models import ContentType
-from django.contrib.contenttypes import generic
-from django.core.exceptions import ValidationError
-from django.db import transaction
-
 from converter.api import get_available_transformations_choices
 from converter.literals import DIMENSION_SEPARATOR
-from documents.models import DocumentType, Document
-from documents.events import HISTORY_DOCUMENT_CREATED
+from django.contrib.contenttypes import generic
+from django.contrib.contenttypes.models import ContentType
+from django.core.exceptions import ValidationError
+from django.db import models, transaction
+from django.utils.translation import ugettext_lazy as _
 from document_indexing.api import update_indexes
+from documents.events import HISTORY_DOCUMENT_CREATED
+from documents.models import DocumentType, Document
 from history.api import create_history
+from metadata.api import save_metadata_list, create_metadata
 from metadata.models import MetadataType
-from metadata.api import save_metadata_list
 from scheduler.api import register_interval_job, remove_job
-from acls.utils import apply_default_acls
+from sources.csv_file import CSVFile
+import csv
+import logging
 
-from .managers import SourceTransformationManager
-from .literals import (SOURCE_CHOICES, SOURCE_CHOICES_PLURAL,
-    SOURCE_INTERACTIVE_UNCOMPRESS_CHOICES, SOURCE_CHOICE_WEB_FORM,
-    SOURCE_CHOICE_STAGING, SOURCE_ICON_DISK, SOURCE_ICON_DRIVE,
-    SOURCE_ICON_CHOICES, SOURCE_CHOICE_WATCH, SOURCE_UNCOMPRESS_CHOICES,
-    SOURCE_UNCOMPRESS_CHOICE_Y)
-from .compressed_file import CompressedFile, NotACompressedFile
+
+
+
 
 logger = logging.getLogger(__name__)
 
@@ -59,8 +59,9 @@ class BaseModel(models.Model):
     def get_transformation_list(self):
         return SourceTransformation.transformations.get_for_object_as_list(self)
 
-    def upload_file(self, file_object, filename=None, use_file_name=False, document_type=None, expand=False, metadata_dict_list=None, user=None, document=None, new_version_data=None, command_line=False):
+    def upload_file(self,  destination_folder, file_object, filename=None, use_file_name=False, document_type=None, expand=False, metadata_dict_list=None, user=None, document=None, new_version_data=None, command_line=False):
         is_compressed = None
+        uploaded_doc = None
 
         if expand:
             try:
@@ -69,9 +70,58 @@ class BaseModel(models.Model):
                 for fp in cf.children():
                     if command_line:
                         print 'Uploading file #%d: %s' % (count, fp)
-                    self.upload_single_file(file_object=fp, filename=None, document_type=document_type, metadata_dict_list=metadata_dict_list, user=user)
+                    uploaded_doc = self.upload_single_file(file_object=fp, filename=None, document_type=document_type, metadata_dict_list=metadata_dict_list, user=user)
                     fp.close()
                     count += 1
+            except NotACompressedFile:
+                is_compressed = False
+                logging.debug('Exception: NotACompressedFile')
+                if command_line:
+                    raise
+                uploaded_doc = self.upload_single_file(file_object=file_object, filename=filename, document_type=document_type, metadata_dict_list=metadata_dict_list, user=user)
+            else:
+                is_compressed = True
+        else:
+            uploaded_doc = self.upload_single_file(file_object, filename, use_file_name, document_type, metadata_dict_list, user, document, new_version_data)
+
+        if destination_folder is not None and uploaded_doc is not None:
+            print 'Uploading file: %s to folder %s' % (file_object, destination_folder.title.encode('utf-8'))
+            destination_folder.add_document(document=uploaded_doc)
+
+        file_object.close()
+        return {'is_compressed': is_compressed}
+
+    def upload_file_csv(self, destination_folder, file_object, csv_file_object, filename=None, use_file_name=False, document_type=None, expand=False, metadata_dict_list=None, user=None, document=None, new_version_data=None, command_line=False):
+        is_compressed = None
+
+        if expand:
+            try:
+                metadata_file = CSVFile(csv_file_object)
+                metadata_dict = metadata_file.get_metadata()
+                
+                cf = CompressedFile(file_object)
+                count = 1
+                for fp in cf.children():
+                    print fp.name
+                    metadata_dict_list = {}
+                    if unicode(fp.name) in metadata_dict.keys():
+                        metadata_dict_list = metadata_dict[unicode(fp.name)]
+                        
+                        metadata_dict_id_list = create_metadata(metadata_dict_list)
+                        print 'found metadata for file: ' + fp.name + ' : ' + str(metadata_dict_id_list)
+                        metadata_dict[unicode(fp.name)] = metadata_dict_id_list
+                        metadata_dict_list = metadata_dict_id_list
+                        
+                        #print 'found metadata for file: ' + fp.name + ' : ' + str(metadata_dict_list)
+                        #logger.debug('found metadata for file: ' + fp.name + ' : ' + str(metadata_dict_list))
+                    if command_line:
+                        print 'Uploading file #%d: %s' % (count, fp)
+                    uploaded_doc = self.upload_single_file(file_object=fp, filename=None, document_type=document_type, metadata_dict_list=metadata_dict_list, user=user)
+                    fp.close()
+                    count += 1
+                    if destination_folder is not None:
+                        print 'Uploading file #%d: %s to folder %s' % (count, fp, destination_folder.title.encode('utf-8'))
+                        destination_folder.add_document(document=uploaded_doc)
 
             except NotACompressedFile:
                 is_compressed = False
@@ -79,10 +129,14 @@ class BaseModel(models.Model):
                 if command_line:
                     raise
                 self.upload_single_file(file_object=file_object, filename=filename, document_type=document_type, metadata_dict_list=metadata_dict_list, user=user)
+            except csv.Error:
+                logger.debug('Exception:csv Error')
+                
             else:
                 is_compressed = True
         else:
             self.upload_single_file(file_object, filename, use_file_name, document_type, metadata_dict_list, user, document, new_version_data)
+            print 'self.upload_single_file uncompressed'
 
         file_object.close()
         return {'is_compressed': is_compressed}
@@ -133,6 +187,8 @@ class BaseModel(models.Model):
             # Only do for new documents
             save_metadata_list(metadata_dict_list, document, create=True)
             warnings = update_indexes(document)
+        
+        return document
 
     class Meta:
         ordering = ('title',)

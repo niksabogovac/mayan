@@ -1,0 +1,304 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Mayan EDMS\n"
+"Report-Msgid-Bugs-To: http://github.com/rosarior/mayan/issues\n"
+"POT-Creation-Date: 2012-12-12 01:49-0400\n"
+"PO-Revision-Date: Thu Oct 24 2013 15:04:28 GMT+0200 (Central Europe Daylight "
+"Time)\n"
+"Last-Translator: jomer <jomer@ping.ba>\n"
+"Language-Team: Bosnian (Bosnia and Herzegovina) (http://www.transifex."
+"com/projects/p/mayan-edms/language/bs_BA/)\n"
+"Language: bs_BA\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 "
+"&& (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Loco-Source-Locale: sr_RS\n"
+"X-Loco-Parser: loco_parse_po\n"
+"X-Loco-Target-Locale: en_GB\n"
+"X-Generator: Loco - https://localise.biz/"
+
+msgid "submit to OCR queue"
+msgstr "predaj u OCR niz"
+
+msgid "re-queue"
+msgstr "ponovo poređaj"
+
+msgid "delete"
+msgstr "obriši"
+
+msgid "stop queue"
+msgstr "zaustavi niz"
+
+msgid "activate queue"
+msgstr "aktiviraj niz"
+
+msgid "clean up pages content"
+msgstr "očisti sadržaj stranica"
+
+msgid ""
+"Runs a language filter to remove common OCR mistakes from document pages "
+"content."
+msgstr ""
+"Pokreće jezični filter kako bi uklonio uobičajene OCR greške iz sadžaja "
+"stranica dokumenta."
+
+msgid "queue document list"
+msgstr "lista dokumenata u nizu"
+
+msgid "OCR"
+msgstr "OCR"
+
+msgid "transformations"
+msgstr "transformacije"
+
+msgid "add transformation"
+msgstr "dodaj transformaciju"
+
+msgid "edit"
+msgstr "izmeni"
+
+msgid "Default"
+msgstr "Osnovno"
+
+msgid "Checks the OCR queue for pending documents."
+msgstr "Proveri OCR niz za dokumente na čekanju."
+
+msgid "Text from OCR"
+msgstr "Tekst iz OCR-a"
+
+msgid "stopped"
+msgstr "zaustavljeno"
+
+msgid "active"
+msgstr "aktivno"
+
+msgid "pending"
+msgstr "na čekanju"
+
+msgid "processing"
+msgstr "obrada"
+
+msgid "error"
+msgstr "greška"
+
+msgid "name"
+msgstr "ime"
+
+msgid "label"
+msgstr "oznaka"
+
+msgid "state"
+msgstr "stanje"
+
+msgid "document queue"
+msgstr "niz dokumenata"
+
+msgid "document queues"
+msgstr "nizovi dokumenata"
+
+msgid "document"
+msgstr "dokument"
+
+msgid "date time submitted"
+msgstr "datum i vreme podneseni"
+
+msgid "delay ocr"
+msgstr "odložiti OCR"
+
+msgid "result"
+msgstr "rezultat"
+
+msgid "node name"
+msgstr "ime noda"
+
+msgid "queue document"
+msgstr "dokument u nizu"
+
+msgid "queue documents"
+msgstr "dokumenti u nizu"
+
+msgid "Missing document."
+msgstr "Nedostaje dokument."
+
+msgid "Enter a valid value."
+msgstr "Unesite važeću vrednost."
+
+msgid "order"
+msgstr "redosled"
+
+msgid "transformation"
+msgstr "transformacija"
+
+msgid "arguments"
+msgstr "argumenti"
+
+msgid "Use dictionaries to indentify arguments, example: %s"
+msgstr "Koristi rečnike da identifikuješ argumente, na primer: %s"
+
+msgid "document queue transformation"
+msgstr "transformacija niza dokumenata"
+
+msgid "document queue transformations"
+msgstr "transformacije niza dokumenata"
+
+msgid "Submit documents for OCR"
+msgstr "Predati dokumente za OCR"
+
+msgid "Delete documents from OCR queue"
+msgstr "Brisati dokumente iz OCR niza"
+
+msgid "Can enable/disable the OCR queue"
+msgstr "Može omogućiti ili onemogućiti OCR niz"
+
+msgid "Can execute the OCR clean up on all document pages"
+msgstr "Može izvršiti OCR čišćenje u svim stranicama dokumenta"
+
+msgid "Can edit an OCR queue properties"
+msgstr "Mogu se urediti svojstva OCR niza"
+
+msgid "Document queues: %d"
+msgstr "Nizovi dokumenata: %d"
+
+msgid "Queued documents: %d"
+msgstr "Dokumenti u nizu: %d"
+
+msgid "OCR statistics"
+msgstr "OCR statistika"
+
+msgid "documents in queue: %s"
+msgstr "dokumenti u nizu: %s"
+
+msgid "thumbnail"
+msgstr "thumbnail"
+
+msgid "document queue properties"
+msgstr "svojstva niza dokumenata"
+
+msgid "Current state: %s"
+msgstr "Trenutno stanje: %s"
+
+msgid "Must provide at least one queue document."
+msgstr "Mora postojati bar jedan dokument u nizu."
+
+msgid "Document: %s is being processed and can't be deleted."
+msgstr "Dokument: %s se obrađuje i ne može se izbrisati."
+
+msgid "Queue document: %(document)s deleted successfully."
+msgstr "Dokument iz niza: %(document)s uspešno obrisan."
+
+msgid "Error deleting document: %(document)s; %(error)s"
+msgstr "Greška u brisanju dokumenta: %(document)s; %(error)s"
+
+msgid "Are you sure you wish to delete queue document: %s?"
+msgstr "Da li ste sigurni da želite da obrišete dokument iz niza: %s?"
+
+msgid "Are you sure you wish to delete queue documents: %s?"
+msgstr "Da li ste sigurni da želite da obrišete dokumente iz niza: %s?"
+
+msgid "Document: %(document)s was added to the OCR queue: %(queue)s."
+msgstr "Dokument: %(document)s je dodat u OCR niz: %(queue)s."
+
+msgid "Document: %(document)s is already queued."
+msgstr "Dokument: %(document)s je već u nizu."
+
+msgid "Document: %(document)s was re-queued to the OCR queue: %(queue)s"
+msgstr "Dokument: %(document)s je ponovo uvršten u OCR niz: %(queue)s"
+
+msgid "Document id#: %d, no longer exists."
+msgstr "Dokument id#: %d, više ne postoji."
+
+msgid "Document: %s is already being processed and can't be re-queded."
+msgstr "Dokument: %s je obrađen i ne može ponovo biti ubačen u niz."
+
+msgid "Are you sure you wish to re-queue document: %s?"
+msgstr "Da li ste sigurni da želite da ponovo uvrstite dokument u niz: %s?"
+
+msgid "Are you sure you wish to re-queue documents: %s?"
+msgstr "Da li ste sigurni da želite da ponovo uvrstite dokumente u niz: %s?"
+
+msgid "Document queue: %s, already stopped."
+msgstr "Niz dokumenata: %s, je ranije zaustavljen."
+
+msgid "Document queue: %s, stopped successfully."
+msgstr "Niz dokumenata: %s, uspešno zaustavljen."
+
+msgid "Are you sure you wish to disable document queue: %s"
+msgstr "Da li ste sigurni da želite da onemogućite niz dokumenata: %s?"
+
+msgid "Document queue: %s, already active."
+msgstr "Niz dokumenata: %s, je već aktivan."
+
+msgid "Document queue: %s, activated successfully."
+msgstr "Niz dokumenata: %s, uspešno aktiviran."
+
+msgid "Are you sure you wish to activate document queue: %s"
+msgstr "Da li ste sigurni da želite da aktivirate niz dokumenata: %s?"
+
+msgid "Are you sure you wish to clean up all the pages content?"
+msgstr "Da li ste sigurni da želite da obrišete sav sadržaj stranica?"
+
+msgid "On large databases this operation may take some time to execute."
+msgstr "Na velikim bazama ova operacija može potrajati duže."
+
+msgid "Document pages content clean up complete."
+msgstr "Potpuno obrisan sadržaj stranica."
+
+msgid "Document pages content clean up error: %s"
+msgstr "Greška u brisanju stranica: %s"
+
+msgid "transformations for: %s"
+msgstr "transformacije za: %s"
+
+msgid "Queue transformation edited successfully"
+msgstr "Uspešno izmenjene transformacije niza"
+
+msgid "Error editing queue transformation; %s"
+msgstr "Greška u izmeni transformacije niza; %s"
+
+msgid "Edit transformation: %s"
+msgstr "Izmeniti transformaciju: %s"
+
+msgid "Queue transformation deleted successfully."
+msgstr "Transformacija niza uspešno obrisana."
+
+msgid "Error deleting queue transformation; %(error)s"
+msgstr "Greška pri brisanju transformacije niza; %(error)s"
+
+msgid "Are you sure you wish to delete queue transformation \"%(transformation)s\""
+msgstr ""
+"Da li ste sigurni da želite da obrišete transformaciju niza "
+"\"%(transformation)s\" "
+
+msgid "Queue transformation created successfully"
+msgstr "Transformacija niza je uspešno kreirana."
+
+msgid "Error creating queue transformation; %s"
+msgstr "Greška pri kreiranju transformacije niza; %s"
+
+msgid "Create new transformation for queue: %s"
+msgstr "Kreiraj novu transformaciju za niz: %s"
+
+msgid ""
+"Amount of seconds to delay OCR of documents to allow for the node's storage "
+"replication overhead."
+msgstr ""
+"Vreme u sekundama koje odlaže OCR dokumenata kako bi se omogućilo prekopiranje "
+"podataka. "
+
+msgid "Maximum amount of concurrent document OCRs a node can perform."
+msgstr "Maksimalan broj dokumenata koje OCR čvor može istovremeno da obrađuje."
+
+msgid "Automatically queue newly created documents for OCR."
+msgstr "Novi kreirani dokumenti se automatski stavljaju u niz za OCR."
+
+msgid "File path to unpaper program."
+msgstr "Put prema datotekama za program bez papira."
+
+msgid "File path to poppler's pdftotext program used to extract text from PDF files."
+msgstr "Put do programa za izdvajanje teksta iz PDF datoteka."
+
+msgid "Text extracted from PDF"
+msgstr "Tekst izdvojen iz PDF-a"

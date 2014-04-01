@@ -1,0 +1,351 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Mayan EDMS\n"
+"Report-Msgid-Bugs-To: http://github.com/rosarior/mayan/issues\n"
+"POT-Creation-Date: 2012-12-12 01:49-0400\n"
+"PO-Revision-Date: Thu Oct 24 2013 14:15:21 GMT+0200 (Central Europe Daylight "
+"Time)\n"
+"Last-Translator: jomer <jomer@ping.ba>\n"
+"Language-Team: Bosnian (Bosnia and Herzegovina) (http://www.transifex."
+"com/projects/p/mayan-edms/language/bs_BA/)\n"
+"Language: bs_BA\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 "
+"&& (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Loco-Source-Locale: sr_RS\n"
+"X-Loco-Parser: loco_parse_po\n"
+"X-Loco-Target-Locale: bs_BA\n"
+"X-Generator: Loco - https://localise.biz/"
+
+msgid "edit metadata"
+msgstr "izmeni meta podatke"
+
+msgid "metadata"
+msgstr "meta podaci"
+
+msgid "add metadata"
+msgstr "dodaj meta podatak"
+
+msgid "remove metadata"
+msgstr "ukloni meta podatak"
+
+msgid "metadata types"
+msgstr "tipovi meta podataka"
+
+msgid "edit"
+msgstr "izmeni"
+
+msgid "delete"
+msgstr "obriši"
+
+msgid "create new"
+msgstr "kreiraj novi"
+
+msgid "metadata sets"
+msgstr "set meta podataka"
+
+msgid "members"
+msgstr "članovi"
+
+msgid "default metadata"
+msgstr "osnovni meta podaci"
+
+msgid "'metadata' object has no attribute '%s'"
+msgstr "'metadata' objekt nema atributa '%s'"
+
+msgid "required"
+msgstr "potreban"
+
+msgid "id"
+msgstr "id"
+
+msgid "Name"
+msgstr "Naziv"
+
+msgid "Value"
+msgstr "Vrednost"
+
+msgid "Update"
+msgstr "Ažuriranje"
+
+msgid "Metadata type"
+msgstr "Tip meta podatka"
+
+msgid "Remove"
+msgstr "Ukloni"
+
+msgid "Metadata sets"
+msgstr "Set meta podataka"
+
+msgid "Metadata"
+msgstr "Meta podaci"
+
+msgid " Available models: %s"
+msgstr "Dostupni modeli: %s"
+
+msgid " Available functions: %s"
+msgstr "Dostupne funkcije: %s"
+
+msgid "name"
+msgstr "naziv"
+
+msgid "Do not use python reserved words, or spaces."
+msgstr "Ne koristite python rezervirane reči, ili razmak."
+
+msgid "title"
+msgstr "naslov"
+
+msgid "default"
+msgstr "osnovno"
+
+msgid "Enter a string to be evaluated.%s"
+msgstr "Unesi string za evaluaciju.%s"
+
+msgid "lookup"
+msgstr "pronalaženje"
+
+msgid ""
+"Enter a string to be evaluated.  Example: [user.get_full_name() for user in "
+"User.objects.all()].%s"
+msgstr ""
+"Unesi string za evaluaciju. Primer: [user.get_full_name() za korisnike u "
+"Korisnici.objects.all()].%s"
+
+msgid "metadata type"
+msgstr "tip meta podataka"
+
+msgid "metadata set"
+msgstr "set meta podataka"
+
+msgid "metadata set item"
+msgstr "stavka seta meta podataka"
+
+msgid "metadata set items"
+msgstr "stavke seta meta podataka"
+
+msgid "document"
+msgstr "dokument"
+
+msgid "type"
+msgstr "tip"
+
+msgid "value"
+msgstr "vrednost"
+
+msgid "document metadata"
+msgstr "meta podaci dokumenta"
+
+msgid "document type"
+msgstr "tip dokumenta"
+
+msgid "default metadata sets"
+msgstr "osnovni set meta podataka"
+
+msgid "document type defaults"
+msgstr "osnovni tip dokumenata"
+
+msgid "document types defaults"
+msgstr "osnovni tipovi dokumenta"
+
+msgid "Edit a document's metadata"
+msgstr "Izmeni meta podatke dokumenta"
+
+msgid "Add metadata to a document"
+msgstr "Dodaj meta podatak za dokument"
+
+msgid "Remove metadata from a document"
+msgstr "Obriši meta podatak iz dokumenta"
+
+msgid "View metadata from a document"
+msgstr "Pregledaj meta podatke iz dokumenta"
+
+msgid "Metadata setup"
+msgstr "Podešavanje meta podataka"
+
+msgid "Edit metadata types"
+msgstr "Izmeni tipove meta podataka"
+
+msgid "Create new metadata types"
+msgstr "Kreiraj novi tip meta podataka"
+
+msgid "Delete metadata types"
+msgstr "Izbriši tip meta podataka"
+
+msgid "View metadata types"
+msgstr "Pregledaj tip meta podataka"
+
+msgid "Edit metadata sets"
+msgstr "Izmeni setove meta podataka"
+
+msgid "Create new metadata sets"
+msgstr "Kreiraj novi set meta podataka"
+
+msgid "Delete metadata sets"
+msgstr "Izbriši set meta podataka"
+
+msgid "View metadata sets"
+msgstr "Pregledaj set meta podataka"
+
+msgid "The selected document doesn't have any metadata."
+msgstr "Odabrani dokument nema meta podatke"
+
+msgid "Must provide at least one document."
+msgstr "Mora da postoji bar jedan dokument."
+
+msgid "Error deleting document indexes; %s"
+msgstr "Greška pri brisanju indeksa dokumenta; %s"
+
+msgid "Error editing metadata for document %(document)s; %(error)s."
+msgstr "Greška pri izmeni meta podataka za dokument %(document)s; %(error)s. "
+
+msgid "Metadata for document %s edited successfully."
+msgstr "Meta podaci za dokument %s uspešno izmenjeni."
+
+msgid "Error updating document indexes; %s"
+msgstr "Greška kod ažuriranja indeksa dokumenta; %s"
+
+msgid "Document indexes updated successfully."
+msgstr "Indeksi dokumenta uspešno ažurirani."
+
+msgid "Edit metadata for document: %s"
+msgstr "Izmeni meta podatke za dokument: %s"
+
+msgid "Edit metadata for documents: %s"
+msgstr "Izmeni meta podatke za dokumente: %s"
+
+msgid "Metadata type: %(metadata_type)s successfully added to document %(document)s."
+msgstr "Tip meta podataka: %(metadata_type)s uspešno dodat u dokument %(document)s."
+
+msgid "Metadata type: %(metadata_type)s already present in document %(document)s."
+msgstr "Tip meta podataka: %(metadata_type)s već postoji u dokumentu %(document)s."
+
+msgid "Add metadata type to document: %s"
+msgstr "Dodaj tip meta podataka u dokument: %s"
+
+msgid "Add metadata type to documents: %s"
+msgstr "Dodaj tip meta podataka u dokumente: %s"
+
+msgid ""
+"Successfully remove metadata type: %(metadata_type)s from document: "
+"%(document)s."
+msgstr ""
+"Uspešno uklonjen tip meta podataka: %(metadata_type)s iz dokumenta: "
+"%(document)s."
+
+msgid "Error removing metadata type: %(metadata_type)s from document: %(document)s."
+msgstr ""
+"Greška kod uklanjanja tipa meta podataka: %(metadata_type)s iz dokumenta: "
+"%(document)s."
+
+msgid "Remove metadata types from document: %s"
+msgstr "Ukloni tip meta podataka iz dokumenta: %s"
+
+msgid "Remove metadata types from documents: %s"
+msgstr "Ukloni tip meta podataka iz dokumenata: %s"
+
+msgid "metadata for: %s"
+msgstr "meta podaci za: %s"
+
+msgid "internal name"
+msgstr "interni naziv"
+
+msgid "Metadata type edited successfully"
+msgstr "Tip meta podataka uspešno izmenjen"
+
+msgid "Error editing metadata type; %s"
+msgstr "Greška u izmeni tipa meta podataka: %s"
+
+msgid "edit metadata type: %s"
+msgstr "izmeni tip meta podataka: %s"
+
+msgid "Metadata type created successfully"
+msgstr "Tip meta podataka uspešno kreiran"
+
+msgid "create metadata type"
+msgstr "kreiraj tip meta podataka"
+
+msgid "Metadata type: %s deleted successfully."
+msgstr "Tip meta podataka: %s uspešno izbrisan."
+
+msgid "Metadata type: %(metadata_type)s delete error: %(error)s"
+msgstr "Tip meta podataka: %(metadata_type)s greška prilikom brisanja: %(error)s"
+
+msgid "Are you sure you wish to delete the metadata type: %s?"
+msgstr "Da li ste sigurni da želite da izbrišete tip meta podataka: %s?"
+
+msgid "Metadata set edited successfully"
+msgstr "Set meta podataka uspešno izmenjen"
+
+msgid "Error editing metadata set; %s"
+msgstr "Greška u izmeni seta meta podataka; %s"
+
+msgid "edit metadata set: %s"
+msgstr "izmeni set meta podataka: %s"
+
+msgid "non members of metadata set: %s"
+msgstr "nisu članovi seta meta podataka: %s"
+
+msgid "members of metadata set: %s"
+msgstr "članovi seta meta podataka: %s"
+
+msgid "Metadata set created successfully"
+msgstr "Set meta podataka uspešno kreiran."
+
+msgid "create metadata set"
+msgstr "kreiraj set meta podataka"
+
+msgid "Metadata set: %s deleted successfully."
+msgstr "Set meta podataka: %s uspešno izbrisan."
+
+msgid "Metadata set: %(metadata_set)s delete error: %(error)s"
+msgstr "Set meta podataka: %(metadata_set)s greška u brisanju: %(error)s"
+
+msgid "Are you sure you wish to delete the metadata set: %s?"
+msgstr "Da li ste sigurni da želite da izbrišete set meta podataka:  %s?"
+
+msgid "Metadata types"
+msgstr "Tip meta podataka"
+
+msgid "non members of document type: %s"
+msgstr "nisu članovi tipa dokumenta: %s"
+
+msgid "members of document type: %s"
+msgstr "članovi tipa dokumenta: %s"
+
+msgid "What are metadata sets?"
+msgstr "Koji su setovi meta podataka?"
+
+msgid ""
+"A metadata set is a group of one or more metadata types.  Metadata sets are "
+"useful when creating new documents; selecing a metadata set automatically "
+"attaches it's member metadata types to said document."
+msgstr ""
+"Set meta podataka je skup jednog ili više tipova meta podataka. Setovi meta "
+"podataka su korisni pri kreiranju novih dokumenata; odabirom seta meta podataka "
+"tipovi meta podataka koji su deo seta se automatski dodjeljuju u navedeni "
+"dokument."
+
+msgid "What are metadata types?"
+msgstr "Koji su tipovi meta podataka?"
+
+msgid ""
+"A metadata type defines the characteristics of a value of some kind that can be "
+"attached to a document.  Examples of metadata types are: a client name, a date, "
+"or a project to which several documents belong.  A metadata type's name is the "
+"internal identifier with which it can be referenced to by other modules such as "
+"the indexing module, the title is the value that is shown to the users, the "
+"default value is the value an instance of this metadata type will have "
+"initially, and the lookup value turns an instance of a metadata of this type "
+"into a choice list which options are the result of the lookup's code execution."
+msgstr ""
+"Tip meta podatka definiše karakteristike vrednosti neke vrste koje se mogu "
+"prikačiti na dokument. Primeri tipova meta podataka su: ime klijenta, datum, "
+"ili projekat kojem pripada nekoliko dokumenata. Ime tipa meta podataka je "
+"interni identifikator sa kojim se može referencirati na druge module, kao što "
+"je  modul indeksiranja; naslov je vrednost koja se prikazuje korisnicima, "
+"osnovna vrednost je vrednost koju će na primer ovaj tip meta podatka imati "
+"inicijalno, a vrednost pretraživanja pretvara meta podatak ovog tipa u listu "
+"čije su opcije rezultat primenjivanja koda za pretraživanje."

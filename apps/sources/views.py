@@ -1,42 +1,38 @@
 from __future__ import absolute_import
-
+from .permissions import PERMISSION_SOURCES_SETUP_VIEW, \
+    PERMISSION_SOURCES_SETUP_EDIT, PERMISSION_SOURCES_SETUP_DELETE, \
+    PERMISSION_SOURCES_SETUP_CREATE
+from acls.models import AccessEntry
+from common.utils import encapsulate
+from django.conf import settings
+from django.contrib import messages
+from django.core.exceptions import PermissionDenied
+from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
-from django.contrib import messages
-from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ugettext
 from django.utils.safestring import mark_safe
-from django.conf import settings
-from django.core.exceptions import PermissionDenied
-
-from documents.permissions import (PERMISSION_DOCUMENT_CREATE,
-    PERMISSION_DOCUMENT_NEW_VERSION)
-from documents.models import DocumentType, Document
+from django.utils.translation import ugettext, ugettext_lazy as _
 from documents.conf.settings import THUMBNAIL_SIZE
 from documents.exceptions import NewDocumentVersionNotAllowed
+from documents.models import DocumentType, Document
+from documents.permissions import PERMISSION_DOCUMENT_CREATE, \
+    PERMISSION_DOCUMENT_NEW_VERSION
+from folders.models import Folder
 from metadata.api import decode_metadata_from_url, metadata_repr_as_list
 from permissions.models import Permission
-from common.utils import encapsulate
-import sendfile
-from acls.models import AccessEntry
-
-from sources.models import (WebForm, StagingFolder, SourceTransformation,
-    WatchFolder)
-from sources.literals import (SOURCE_CHOICE_WEB_FORM, SOURCE_CHOICE_STAGING,
-    SOURCE_CHOICE_WATCH)
-from sources.literals import (SOURCE_UNCOMPRESS_CHOICE_Y,
-    SOURCE_UNCOMPRESS_CHOICE_ASK)
+from sources.forms import StagingDocumentForm, WebFormForm, WatchFolderSetupForm, \
+    SourceTransformationForm, SourceTransformationForm_create, WebFormSetupForm, \
+    StagingFolderSetupForm, WebFormFormCustom, StagingDocumentFormCustom
+from sources.literals import SOURCE_CHOICE_WEB_FORM, SOURCE_CHOICE_STAGING, \
+    SOURCE_CHOICE_WATCH, SOURCE_UNCOMPRESS_CHOICE_Y, SOURCE_UNCOMPRESS_CHOICE_ASK
+from sources.models import WebForm, StagingFolder, SourceTransformation, \
+    WatchFolder
 from sources.staging import create_staging_file_class
-from sources.forms import (StagingDocumentForm, WebFormForm,
-    WatchFolderSetupForm)
-from sources.forms import WebFormSetupForm, StagingFolderSetupForm
-from sources.forms import SourceTransformationForm, SourceTransformationForm_create
-from .permissions import (PERMISSION_SOURCES_SETUP_VIEW,
-    PERMISSION_SOURCES_SETUP_EDIT, PERMISSION_SOURCES_SETUP_DELETE,
-    PERMISSION_SOURCES_SETUP_CREATE)
+import logging
+import sendfile
 
+logger = logging.getLogger(__name__)
 
 def return_function(obj):
     return lambda context: context['source'].source_type == obj.source_type and context['source'].pk == obj.pk
@@ -77,8 +73,7 @@ def get_active_tab_links(document=None):
         SOURCE_CHOICE_STAGING: staging_folders
     }
 
-
-def upload_interactive(request, source_type=None, source_id=None, document_pk=None):
+def upload_interactive(request, source_type=None, source_id=None, document_pk=None ):
     subtemplates_list = []
 
     if document_pk:
@@ -111,6 +106,8 @@ def upload_interactive(request, source_type=None, source_id=None, document_pk=No
                     ],
                 }
             })
+
+    csv = request.GET.get('csv', False)
 
     document_type_id = request.GET.get('document_type_id', None)
     if document_type_id:
@@ -151,16 +148,34 @@ def upload_interactive(request, source_type=None, source_id=None, document_pk=No
                                     expand = False
 
                         new_filename = get_form_filename(form)
+                        folder = None
+                        if csv == 'True':
+                            if request.POST.has_key('folder'):
+                                folder_id = request.POST['folder']
+                                folder = get_object_or_404(Folder, pk=folder_id)
+                            result = web_form.upload_file_csv(folder,request.FILES['file'], request.FILES['csv_file'],
+                                new_filename, use_file_name=form.cleaned_data.get('use_file_name', False),
+                                document_type=document_type,
+                                expand=True,
+                                metadata_dict_list=decode_metadata_from_url(request.GET),
+                                user=request.user,
+                                document=document,
+                                new_version_data=form.cleaned_data.get('new_version_data')
+                            )
+                        else:
+                            if request.POST.has_key('folder'):
+                                folder_id = request.POST['folder']
+                                folder = get_object_or_404(Folder, pk=folder_id)
+                            result = web_form.upload_file(folder,request.FILES['file'],
+                                new_filename, use_file_name=form.cleaned_data.get('use_file_name', False),
+                                document_type=document_type,
+                                expand=expand,
+                                metadata_dict_list=decode_metadata_from_url(request.GET),
+                                user=request.user,
+                                document=document,
+                                new_version_data=form.cleaned_data.get('new_version_data')
+                            )
 
-                        result = web_form.upload_file(request.FILES['file'],
-                            new_filename, use_file_name=form.cleaned_data.get('use_file_name', False),
-                            document_type=document_type,
-                            expand=expand,
-                            metadata_dict_list=decode_metadata_from_url(request.GET),
-                            user=request.user,
-                            document=document,
-                            new_version_data=form.cleaned_data.get('new_version_data')
-                        )
                         if document:
                             messages.success(request, _(u'New document version uploaded successfully.'))
                             return HttpResponseRedirect(reverse('document_view_simple', args=[document.pk]))
@@ -181,13 +196,23 @@ def upload_interactive(request, source_type=None, source_id=None, document_pk=No
                         if settings.DEBUG:
                             raise
                         messages.error(request, _(u'Unhandled exception: %s') % e)
+                else:
+                    print 'form.is_valid: False'
             else:
-                form = WebFormForm(
-                    show_expand=(web_form.uncompress == SOURCE_UNCOMPRESS_CHOICE_ASK) and not document,
-                    document_type=document_type,
-                    source=web_form,
-                    instance=document
-                )
+                if csv == 'True':
+                    form = WebFormFormCustom(
+                        document_type=document_type,
+                        source=web_form,
+                        instance=document,
+                        user=request.user
+                    )
+                else:
+                    form = WebFormForm(
+                        show_expand=(web_form.uncompress == SOURCE_UNCOMPRESS_CHOICE_ASK) and not document,
+                        document_type=document_type,
+                        source=web_form,
+                        instance=document
+                    )
             if document:
                 title = _(u'upload a new version from source: %s') % web_form.title
             else:
@@ -227,7 +252,7 @@ def upload_interactive(request, source_type=None, source_id=None, document_pk=No
 
                         new_filename = get_form_filename(form)
 
-                        result = staging_folder.upload_file(staging_file.upload(),
+                        result = staging_folder.upload_file(None, staging_file.upload(),
                             new_filename, use_file_name=form.cleaned_data.get('use_file_name', False),
                             document_type=document_type,
                             expand=expand,
@@ -263,12 +288,19 @@ def upload_interactive(request, source_type=None, source_id=None, document_pk=No
                             raise
                         messages.error(request, _(u'Unhandled exception: %s') % e)
             else:
-                form = StagingDocumentForm(cls=StagingFile,
-                    document_type=document_type,
-                    show_expand=(staging_folder.uncompress == SOURCE_UNCOMPRESS_CHOICE_ASK) and not document,
-                    source=staging_folder,
-                    instance=document
-                )
+                if csv == 'True':
+                    form = StagingDocumentFormCustom(cls=StagingFile,
+                        document_type=document_type,
+                        source=staging_folder,
+                        instance=document
+                    )
+                else:
+                    form = StagingDocumentForm(cls=StagingFile,
+                        document_type=document_type,
+                        show_expand=(staging_folder.uncompress == SOURCE_UNCOMPRESS_CHOICE_ASK) and not document,
+                        source=staging_folder,
+                        instance=document
+                    )
             try:
                 staging_filelist = StagingFile.get_all()
             except Exception, e:

@@ -17,7 +17,7 @@ sys.path.append(os.path.join(PROJECT_ROOT, 'apps'))
 sys.path.append(os.path.join(PROJECT_ROOT, 'shared_apps'))
 sys.path.append(os.path.join(PROJECT_ROOT, '3rd_party_apps'))
 
-PROJECT_TITLE = 'Mayan EDMS'
+PROJECT_TITLE = 'EDMS'
 PROJECT_NAME = 'mayan'
 
 DEBUG = False
@@ -29,9 +29,9 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',  # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': os.path.join(PROJECT_ROOT, '%s.sqlite' % PROJECT_NAME),     # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
+        'ENGINE': 'django.db.backends.mysql',  # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'edms',     # Or path to database file if using sqlite3.
+        'USER': 'root',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
@@ -45,11 +45,11 @@ DATABASES = {
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Puerto_Rico'
+TIME_ZONE = 'Europe/Belgrade'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'sr'
 
 LANGUAGES = (
     ('ar', ugettext('Arabic')),
@@ -64,7 +64,7 @@ LANGUAGES = (
     ('pt', ugettext('Portuguese')),
     ('pt-br', ugettext('Portuguese (Brazil)')),
     ('ru', ugettext('Russian')),
-    ('vi', ugettext('Vietnamese (Viet Nam)')),
+    ('sr', ugettext('Serbian')),
 )
 
 SITE_ID = 1

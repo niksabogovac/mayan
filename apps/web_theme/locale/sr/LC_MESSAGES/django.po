@@ -1,0 +1,85 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Mayan EDMS\n"
+"Report-Msgid-Bugs-To: http://github.com/rosarior/mayan/issues\n"
+"POT-Creation-Date: 2012-12-12 01:49-0400\n"
+"PO-Revision-Date: Fri Oct 25 2013 09:51:43 GMT+0200 (Central Europe Daylight "
+"Time)\n"
+"Last-Translator: jomer <jomer@ping.ba>\n"
+"Language-Team: Bosnian (Bosnia and Herzegovina) (http://www.transifex."
+"com/projects/p/mayan-edms/language/bs_BA/)\n"
+"Language: bs_BA\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 "
+"&& (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Loco-Source-Locale: sr_RS\n"
+"X-Loco-Parser: loco_parse_po\n"
+"X-Loco-Target-Locale: bs_BA\n"
+"X-Generator: Loco - https://localise.biz/"
+
+msgid ""
+"CSS theme to apply, options are: amro, bec, bec-green, blue, default, djime-"
+"cerulean, drastic-dark, kathleene, olive, orange, red, reidb-greenish and "
+"warehouse."
+msgstr ""
+"Kod CSS tema za primenu, opcije su : amro, bec, bec-zelena, plava, osnovna, "
+"djime-cerulean, drastic-dark, kathleene, maslinasta, narandžasta, crvena, reidb-"
+"greenish i warehouse."
+
+msgid "Display extra information in the login screen."
+msgstr "Prikaži dodatne informacije na ekranu za prijavljivanje."
+
+msgid "dismiss all notifications"
+msgstr "ne prikazuj više ove notifikacije"
+
+msgid "close all"
+msgstr "zatvori sve"
+
+msgid "dismiss this notification"
+msgstr "ne prikazuj više ovu notifikaciju"
+
+msgid "close"
+msgstr "zatvori"
+
+msgid "Login"
+msgstr "Prijavljivanje"
+
+msgid "You are already logged in"
+msgstr "Već ste prijavljeni"
+
+msgid "Redirecting you to the website entry point in 5 seconds."
+msgstr "Preusmeravamo vas na ulaz u websajt za 5 sekundi."
+
+msgid "Or click <a href=\"%(LOGIN_REDIRECT_URL)s\">here</a> if redirection doesn't work."
+msgstr ""
+"Ili kliknite na <a href=\"%(LOGIN_REDIRECT_URL)s\">here</a> ako redirekcja ne "
+"radi."
+
+msgid "First time login"
+msgstr "Prijava - prvi put"
+
+msgid "You have just finished installing <strong>Mayan EDMS</strong>, congratulations!"
+msgstr "Upravo ste završili instalaciju <strong>Mayan EDMS</strong>, čestitamo!"
+
+msgid "Login using the following credentials:"
+msgstr "Prijava korišćenjem sledećih podataka:"
+
+msgid "Username: <strong>%(account)s</strong>"
+msgstr "Korisnik: <strong>%(account)s</strong>"
+
+msgid "Password: <strong>%(password)s</strong>"
+msgstr "Lozinka: <strong>%(password)s</strong>"
+
+msgid "Be sure to change the password to increase security and to disable this message."
+msgstr ""
+"Ne zaboravite da promenite lozinku kako biste pojačali sigurnost i onemogućili "
+"dalje prikazivanje ove poruke."
+
+msgid "Previous"
+msgstr "Prethodni"
+
+msgid "Next"
+msgstr "Sledeći"

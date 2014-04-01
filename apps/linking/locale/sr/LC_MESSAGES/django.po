@@ -1,0 +1,257 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Mayan EDMS\n"
+"Report-Msgid-Bugs-To: http://github.com/rosarior/mayan/issues\n"
+"POT-Creation-Date: 2012-12-12 01:48-0400\n"
+"PO-Revision-Date: Thu Oct 24 2013 11:38:21 GMT+0200 (Central Europe Daylight "
+"Time)\n"
+"Last-Translator: jomer <jomer@ping.ba>\n"
+"Language-Team: Bosnian (Bosnia and Herzegovina) (http://www.transifex."
+"com/projects/p/mayan-edms/language/bs_BA/)\n"
+"Language: bs_BA\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 "
+"&& (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Loco-Source-Locale: sr_RS\n"
+"X-Loco-Parser: loco_parse_po\n"
+"X-Loco-Target-Locale: bs_BA\n"
+"X-Generator: Loco - https://localise.biz/"
+
+msgid "smart links actions"
+msgstr "smart link akcija"
+
+msgid "smart links"
+msgstr "smart linkovi"
+
+msgid "smart links list"
+msgstr "lista smart linkova"
+
+msgid "create new smart link"
+msgstr "kreiraj novi smart link"
+
+msgid "edit"
+msgstr "izmeni"
+
+msgid "delete"
+msgstr "obriši"
+
+msgid "conditions"
+msgstr "uslovi"
+
+msgid "create condition"
+msgstr "kreiraj uslove"
+
+msgid "ACLs"
+msgstr "ACLs"
+
+msgid "Pages"
+msgstr "Stranice"
+
+msgid "Select"
+msgstr "Odaberi"
+
+msgid "Click on the image for full size view of the first page."
+msgstr "Klikni na sliku za pregled prve stranice u punoj veličini "
+
+msgid "and"
+msgstr "i"
+
+msgid "or"
+msgstr "ili"
+
+msgid "is equal to"
+msgstr "jednako je"
+
+msgid "is equal to (case insensitive)"
+msgstr "jednako je (nije bitno da li su velika ili mala slova)"
+
+msgid "contains"
+msgstr "sadrži"
+
+msgid "contains (case insensitive)"
+msgstr "sadrži (nije bitno da li su velika ili mala slova)"
+
+msgid "is in"
+msgstr "je u"
+
+msgid "is greater than"
+msgstr "veće je od"
+
+msgid "is greater than or equal to"
+msgstr "je veće od ili jednako sa"
+
+msgid "is less than"
+msgstr "manje je od"
+
+msgid "is less than or equal to"
+msgstr "manje je od ili jednako sa"
+
+msgid "starts with"
+msgstr "počinje sa"
+
+msgid "starts with (case insensitive)"
+msgstr "počinje sa (nije bitno da li su velika ili mala slova)"
+
+msgid "ends with"
+msgstr "završava sa"
+
+msgid "ends with (case insensitive)"
+msgstr "završava sa (nije bitno da li su velika ili mala slova)"
+
+msgid "is in regular expression"
+msgstr "je u regularnom izrazu"
+
+msgid "is in regular expression (case insensitive)"
+msgstr "je u regularnom izrazu (nije bitno da li su velika ili mala slova)"
+
+msgid "title"
+msgstr "naslov"
+
+msgid "dynamic title"
+msgstr "dinamički naslov"
+
+msgid ""
+"This expression will be evaluated against the current selected document.  The "
+"document metadata is available as variables `metadata` and document properties "
+"under the variable `document`."
+msgstr ""
+"Ovaj izraz će biti upoređen sa trenutno odabranim dokumentom. Meta podaci "
+"dokumenta su dostupni kao variable `meta podataka` i u svojstvima dokumenta pod "
+"variablom `document`."
+
+msgid "enabled"
+msgstr "omogućen"
+
+msgid "smart link"
+msgstr "smart link"
+
+msgid "The inclusion is ignored for the first item."
+msgstr "Inkluzija je ignorisana za prvu stavku"
+
+msgid "foreign document data"
+msgstr "podaci stranog dokumenta"
+
+msgid ""
+"This represents the metadata of all other documents.  Available objects: "
+"`document.<attribute>` and `metadata.<metadata_type_name>`."
+msgstr ""
+"Ovo predstavlja meta podatak svih ostalih dokumenata. Dostupni objekti: "
+"`document.<attribute>` and `metadata.<metadata_type_name>`."
+
+msgid "expression"
+msgstr "izraz"
+
+msgid "negated"
+msgstr "negirano"
+
+msgid "Inverts the logic of the operator."
+msgstr "Obrće logiku operatora"
+
+msgid "not"
+msgstr "ne"
+
+msgid "link condition"
+msgstr "uslov linka"
+
+msgid "link conditions"
+msgstr "uslovi linka"
+
+msgid "Smart links"
+msgstr "Smart linkovi"
+
+msgid "View existing smart links"
+msgstr "Pogledaj postojeće smart linkove"
+
+msgid "Create new smart links"
+msgstr "Kreiraj novi smart link"
+
+msgid "Delete smart links"
+msgstr "Obrisati smart linkove"
+
+msgid "Edit smart links"
+msgstr "Izmeni smart linkove"
+
+msgid "No action selected."
+msgstr "Nije odabrana akcija"
+
+msgid "documents in smart link: %(group)s"
+msgstr "dokumenti u smart linku: %(group)s"
+
+msgid "Smart link query error: %s"
+msgstr "Greška smart link upita: %s"
+
+msgid "smart links (%s)"
+msgstr "smart linkovi (%s)"
+
+msgid "There no defined smart links for the current document."
+msgstr "Ne postoje smart linkovi za trenutni dokument."
+
+msgid "Smart link: %s created successfully."
+msgstr "Smart link: %s uspešno kreiran."
+
+msgid "Create new smart link"
+msgstr "Kreiraj novi smart link"
+
+msgid "Smart link: %s edited successfully."
+msgstr "Smart link: %s uspešno izmenjen."
+
+msgid "Edit smart link: %s"
+msgstr "Izmeni smart link: %s"
+
+msgid "Smart link: %s deleted successfully."
+msgstr "Smart link: %s uspešno obrisan."
+
+msgid "Error deleting smart link: %(smart_link)s; %(error)s."
+msgstr "Greška u brisanju smart linka: %(smart_link)s; %(error)s."
+
+msgid "Are you sure you wish to delete smart link: %s?"
+msgstr "Da li ste sigurni da želite da izbrišete smart link: %s?"
+
+msgid "conditions for smart link: %s"
+msgstr "uslovi za smart link: %s"
+
+msgid "Smart link condition: \"%s\" created successfully."
+msgstr "Uslovi smart linka: \"%s\" uspešno kreirani."
+
+msgid "Add new conditions to smart link: \"%s\""
+msgstr "Dodati nove uslove za smart link: \"%s\""
+
+msgid "Smart link condition: \"%s\" edited successfully."
+msgstr "Uslovi smart linka: \"%s\" uspešno izmenjeni."
+
+msgid "Edit smart link condition"
+msgstr "Izmeniti uslove smart linka"
+
+msgid "condition"
+msgstr "uslov"
+
+msgid "Smart link condition: \"%s\" deleted successfully."
+msgstr "Uslov smart linka: \"%s\" uspešno obrisan."
+
+msgid "Error deleting smart link condition: %(smart_link_condition)s; %(error)s."
+msgstr "Greška u brisanju smart link uslova: %(smart_link_condition)s; %(error)s."
+
+msgid "Are you sure you wish to delete smart link condition: \"%s\"?"
+msgstr "Da li ste sigurni da želite da izbrišete uslov smart linka: %s?"
+
+msgid "Show smart link that don't return any documents."
+msgstr "Prikazati smart link koji ne vraća nikakve dokumente."
+
+msgid "What are smart links?"
+msgstr "Šta su smart linkovi?"
+
+msgid ""
+"Smart links are a set of conditional statements that are used to query the "
+"database using the current document the user is accessing as the data source, "
+"the results of these queries are a list of documents that relate in some manner "
+"to the document being displayed and allow users the ability to jump to and from "
+"linked documents very easily."
+msgstr ""
+"Smart linkovi su skup uslovnih izjava koje se koriste za postavljanje upita "
+"bazi podataka pomoću trenutnog dokumenta kao izvora podataka, rezultati tih "
+"upita su popis dokumenata koji su na neki način u vezi sa dokumentom koji se "
+"prikazuje i omogućavaju korisnicima mogućnost da prelaze između povezanih "
+"dokumenata vrlo jednostavno."

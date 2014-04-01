@@ -5,6 +5,7 @@ urlpatterns = patterns('folders.views',
     url(r'^create/$', 'folder_create', (), 'folder_create'),
     url(r'^(?P<folder_id>\d+)/edit/$', 'folder_edit', (), 'folder_edit'),
     url(r'^(?P<folder_id>\d+)/delete/$', 'folder_delete', (), 'folder_delete'),
+    url(r'^(?P<folder_id>\d+)/export/$', 'folder_export_csv', (), 'folder_export_csv'),
     url(r'^(?P<folder_id>\d+)/$', 'folder_view', (), 'folder_view'),
     url(r'^(?P<folder_id>\d+)/remove/document/multiple/$', 'folder_document_multiple_remove', (), 'folder_document_multiple_remove'),
 

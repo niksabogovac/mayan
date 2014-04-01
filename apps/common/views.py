@@ -36,7 +36,8 @@ def multi_object_action_view(request):
         messages.error(request, _(u'No action selected.'))
         return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
-    if not id_list and not items_property_list:
+    #unfortunate hack for export all metadata method
+    if not id_list and not items_property_list and action != '/documents/multiple/export_all/':
         messages.error(request, _(u'Must select at least one item.'))
         return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 

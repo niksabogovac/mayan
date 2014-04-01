@@ -1,0 +1,229 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Mayan EDMS\n"
+"Report-Msgid-Bugs-To: http://github.com/rosarior/mayan/issues\n"
+"POT-Creation-Date: 2012-12-12 01:49-0400\n"
+"PO-Revision-Date: Fri Oct 25 2013 09:29:50 GMT+0200 (Central Europe Daylight "
+"Time)\n"
+"Last-Translator: jomer <jomer@ping.ba>\n"
+"Language-Team: Bosnian (Bosnia and Herzegovina) (http://www.transifex."
+"com/projects/p/mayan-edms/language/bs_BA/)\n"
+"Language: bs_BA\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 "
+"&& (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Loco-Source-Locale: sr_RS\n"
+"X-Loco-Parser: loco_parse_po\n"
+"X-Loco-Target-Locale: bs_BA\n"
+"X-Generator: Loco - https://localise.biz/"
+
+msgid "preview"
+msgstr "pregled"
+
+msgid "tagged items"
+msgstr "tagovane stavke"
+
+msgid "tags"
+msgstr "tagovi"
+
+msgid "Name"
+msgstr "Ime"
+
+msgid "Color"
+msgstr "Boja"
+
+msgid "Tags"
+msgstr "Tagovi"
+
+msgid "tag list"
+msgstr "lista tagova"
+
+msgid "create new tag"
+msgstr "kreiraj novi tag"
+
+msgid "attach tag"
+msgstr "dodaj tag"
+
+msgid "remove tag"
+msgstr "ukloni tag"
+
+msgid "remove tags"
+msgstr "ukloni tagove"
+
+msgid "delete"
+msgstr "obriši"
+
+msgid "edit"
+msgstr "izmeni"
+
+msgid "tagged documents"
+msgstr "tagovani dokumenti"
+
+msgid "ACLs"
+msgstr "ACLs"
+
+msgid "Blue"
+msgstr "Plava"
+
+msgid "Cyan"
+msgstr "Cijan"
+
+msgid "Coral"
+msgstr "Koral"
+
+msgid "Green-Yellow"
+msgstr "Zeleno-žuta"
+
+msgid "Khaki"
+msgstr "Mrko-žuta"
+
+msgid "LightGrey"
+msgstr "Svetlo siva"
+
+msgid "Magenta"
+msgstr "Purpurno-crvena"
+
+msgid "Red"
+msgstr "Crvena"
+
+msgid "Orange"
+msgstr "Narandžasta"
+
+msgid "Yellow"
+msgstr "Žuta"
+
+msgid "tag"
+msgstr "tag"
+
+msgid "color"
+msgstr "boja"
+
+msgid "tag properties"
+msgstr "osobine taga"
+
+msgid "tags properties"
+msgstr "osobine tagova"
+
+msgid "Create new tags"
+msgstr "Kreiraj nove tagove"
+
+msgid "Delete tags"
+msgstr "Obriši tagove"
+
+msgid "Edit tags"
+msgstr "Izmeni tagove"
+
+msgid "View tags"
+msgstr "Pregledaj tagove"
+
+msgid "Attach tags to documents"
+msgstr "Prikači tagove na dokumente"
+
+msgid "Remove tags from documents"
+msgstr "Ukloni tagove iz dokumenta"
+
+msgid "Tag already exists."
+msgstr "Tag već postoji."
+
+msgid "Tag created succesfully."
+msgstr "Tag uspešno kreiran."
+
+msgid "create tag"
+msgstr "kreiraj tag"
+
+msgid "Must provide at least one document."
+msgstr "Mora mora biti označen bar jedan dokument."
+
+msgid "Document \"%(document)s\" is already tagged as \"%(tag)s\""
+msgstr "Dokument \"%(document)s\" je već tagovan kao \"%(tag)s\""
+
+msgid "Tag \"%(tag)s\" attached successfully to document \"%(document)s\"."
+msgstr "Tag \"%(tag)s\" uspešno prikačen na dokument \"%(document)s\"."
+
+msgid "document"
+msgstr "dokument"
+
+msgid "Attach tag to document: %s."
+msgstr "Prikači tag na dokument: %s."
+
+msgid "Attach tag to documents: %s."
+msgstr "Prikači tag na dokumente: %s."
+
+msgid "Must provide at least one tag."
+msgstr "Mora biti označen bar jedan tag."
+
+msgid "Tag \"%s\" deleted successfully."
+msgstr "Tag \"%s\" uspešno izbrisan."
+
+msgid "Error deleting tag \"%(tag)s\": %(error)s"
+msgstr "Greška u brisanju taga \"%(tag)s\": %(error)s"
+
+msgid "Are you sure you wish to delete the tag: %s?"
+msgstr "Da li ste sigurni da želite da izbrišete tag: %s?"
+
+msgid "Will be removed from all documents."
+msgstr "Biće uklonjen iz svih dokumenata."
+
+msgid "Are you sure you wish to delete the tags: %s?"
+msgstr "Da li ste sigurni da želite da izbrišete tagove: %s?"
+
+msgid "Tag updated succesfully."
+msgstr "Tag uspešno ažuriran."
+
+msgid "edit tag: %s"
+msgstr "izmeni tag: %s"
+
+msgid "documents with the tag \"%s\""
+msgstr "dokumenti sa tagom \"%s\""
+
+msgid "tags for: %s"
+msgstr "tagovi za: %s"
+
+msgid "Must provide at least one tagged document."
+msgstr "Mora postojati bar jedan tagovan dokument."
+
+msgid "Remove tag from document: %s."
+msgstr "Ukloni tag iz dokumenta: %s."
+
+msgid "Remove tag from documents: %s."
+msgstr "Ukloni tag iz dokumenata: %s."
+
+msgid ""
+"Are you sure you wish to remove the tag \"%(tag)s\" from the document: "
+"%(document)s?"
+msgstr ""
+"Da li ste sigurni da želite da uklonite tag \"%(tag)s\" iz dokumenta: "
+"%(document)s?"
+
+msgid ""
+"Are you sure you wish to remove the tag \"%(tag)s\" from the documents: "
+"%(documents)s?"
+msgstr ""
+"Da li ste sigurni da želite da uklonite tag \"%(tag)s\" iz dokumenata: "
+"%(documents)s?"
+
+msgid ""
+"Are you sure you wish to remove the tags: %(tags)s from the document: "
+"%(document)s?"
+msgstr ""
+"Da li ste sigurni da želite da uklonite tagove: %(tags)s iz dokumenta: "
+"%(document)s?"
+
+msgid ""
+"Are you sure you wish to remove the tags %(tag)s from the documents: "
+"%(documents)s?"
+msgstr ""
+"Da li ste sigurni da želite da uklonite tagove %(tag)s iz dokumenata: "
+"%(documents)s?"
+
+msgid "Document \"%(document)s\" wasn't tagged as \"%(tag)s\""
+msgstr "Dokument \"%(document)s\" nije tagovan kao \"%(tag)s\""
+
+msgid "Tag \"%(tag)s\" removed successfully from document \"%(document)s\"."
+msgstr "Tag \"%(tag)s\" uspešno uklonjen iz dokumenta \"%(document)s\"."
+
+msgid "Add tag to document"
+msgstr "Dodaj tag u dokument"

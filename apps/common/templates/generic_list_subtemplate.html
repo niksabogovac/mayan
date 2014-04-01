@@ -6,8 +6,66 @@
 {% load variable_tags %}
 {% load main_settings_tags %}
 {% load multiselect_tags %}
+{% load dict %}
+{% load string_trim %}
 
 {% get_main_setting "DISABLE_ICONS" as disable_icons %}
+                            
+<script type="text/javascript">
+
+//returns new query with new filter or already used filter with updated value
+function resolveQuery(numberOfFilters, filterColumn, filterValue, query) {
+	var query = window.location.search + '';
+	//filter is already used so we need to update query part with new filter value
+	if(query.indexOf(filterColumn) != -1) {
+		var valueStartIndex = query.indexOf('=', query.indexOf(filterColumn)) + 1
+		var valueEndIndex = query.indexOf('&', valueStartIndex);
+		//we are on the end of the query
+		if(valueEndIndex == -1) {
+			valueEndIndex = query.length;
+		}
+		query = query.replaceBetween(valueStartIndex, valueEndIndex, filterValue);
+	} else if(filterValue != '') {
+		numberOfFilters++;
+    	if((window.location + '').indexOf('?') == -1) {
+    		query += '?';
+    	} else {
+    		query += '&';
+    	}
+		query += 'filter_column' + numberOfFilters + '=' + filterColumn + '&filter_value' + numberOfFilters + '=' + filterValue;
+	}
+	return query;
+}
+
+
+$(document).ready(function() {
+	
+	//checks if some of the special filter metadata folder documents view buttons is clicked
+	$('button').click(function(e){
+		var target = e.target || e.srcElement;
+		if(target.className == 'button-filter-metadata') {
+			return false;
+		}
+		return true;
+	});
+	
+	$('input').keyup(function(e){
+		var FILTER_TEMPLATE_NAME = 'search_id_';
+		var FILTER_TEMPLATE_BUTTON_NAME = 'search_button_id_';
+		var target = e.target || e.srcElement;
+	    if(e.keyCode == 13 && target.id.startsWith(FILTER_TEMPLATE_NAME)){
+	    	console.log(e);
+	    	var filterColumn = target.id.substring(FILTER_TEMPLATE_NAME.length);
+	    	var filterValue = $('#' + FILTER_TEMPLATE_NAME + filterColumn).val();
+	    	var submitUrl = $('#' + FILTER_TEMPLATE_BUTTON_NAME + filterColumn).val();
+	    	var numberOfFilters = Number('{{filter_column_count}}');
+	    	submitUrl += resolveQuery(numberOfFilters, filterColumn, filterValue);
+	    	window.location = submitUrl;
+	    }
+	});
+});
+
+</script>
 
 {% if side_bar %}
     <div class="block">
@@ -30,7 +88,7 @@
     <div class="inner">
 {% endif %}
 
-        <form action="{% url multi_object_action_view %}" class="form multi_select" method="get">
+        <form action="{% url multi_object_action_view %}" class="form multi_select" method="get" >
 
             {% if object_list %}
                 {% if multi_select or multi_select_as_buttons %}
@@ -69,24 +127,86 @@
                             {% endif %}
 
                             {% if not hide_object %}
-                                <th>{% trans "Identifier" %}</th>
+                                <th>
+                                	{% trans "Identifier" %}
+                                	
+                                	{% if show_sort %}
+                                		<div class=" document_sort">
+		                                	<a href="{{ request.path }}?sort_type=desc&sort_column={{ sort_identifier }}">
+		                                		<span class="famfam active famfam-bullet_arrow_up"></span>
+		                                	</a>
+		                                	<br />
+		                                	<a href="{{ request.path }}?sort_type=asc&sort_column={{ sort_identifier }}">
+		                                		<span class="famfam active famfam-bullet_arrow_down"></span>
+		                                	</a>
+		                                </div>
+                                	{% endif %}
+                                </th>
                             {% endif %}
 
                             {% for column in extra_columns_preffixed %}
-                                <th>{{ column.name|capfirst }}</th>
+                                <th>
+                                	{{ column.name|capfirst }}
+                                	
+                                	{% if show_sort %}
+                                		<div class=" document_sort">
+		                                	<a href="{{ request.path }}?sort_type=desc&sort_column={{ column.name }}">
+		                                		<span class="famfam active famfam-bullet_arrow_up"></span>
+		                                	</a>
+		                                	<a href="{{ request.path }}?sort_type=asc&sort_column={{ column.name }}">
+		                                		<span class="famfam active famfam-bullet_arrow_down"></span>
+		                                	</a>
+	                                	</div>
+                                	{% endif %}
+                                </th>
+
                             {% endfor %}
 
-                            {% for column in object_list.0|get_model_list_columns %}
-                                <th>{{ column.name|capfirst }}</th>
-                            {% endfor %}            
+							{% if not hide_sort %}
+	                            {% for column in object_list.0|get_model_list_columns %}
+	                            	{% if display_metadata_columns and column.name|lower == 'metadata' %}
+										{% for metadata_column in metadata_columns %}
+											<th>
 
-                            {% for column in extra_columns %}
-                                <th>{{ column.name|capfirst }}</th>
-                            {% endfor %}        
+												<div>
+													<input id="search_id_{{ metadata_column.internal_name|string_trim }}"  name="search_name_{{ metadata_column.internal_name|string_trim }}"" 
+													value="{{ filter_columns|get_dict_item_stripped_key:metadata_column.internal_name }}" class="metadata-filter" />
+													<button class="button-filter-metadata" type="submit" id="search_button_id_{{ metadata_column.internal_name|string_trim }}" 
+														name="search_button_name_{{ metadata_column.internal_name|string_trim }}" 
+														value="{{ request.path }}"
+														style="margin-bottom: 8px;display: none;"></button>
+												</div>
+											
+												{{ metadata_column.external_name|capfirst }}
+	                                	
+			                                	{% if show_sort %}
+			                                		<div class=" document_sort">
+					                                	<a href="{{ request.path }}?sort_type=desc&sort_column=metadata_{{ metadata_column.internal_name|string_trim }}">
+					                                		<span class="famfam active famfam-bullet_arrow_up"></span>
+					                                	</a>
+					                                	<a href="{{ request.path }}?sort_type=asc&sort_column=metadata_{{ metadata_column.internal_name|string_trim }}">
+					                                		<span class="famfam active famfam-bullet_arrow_down"></span>
+					                                	</a>
+					                                </div>
+			                                	{% endif %}
+			                                </th>
+										{% endfor %}
+									{% else %}
+										<th>
+											{{ column.name|capfirst }}
+		                                </th>
+									{% endif %}
+	                            {% endfor %}
 
-                            {% if not hide_links %}
-                                <th class="">&nbsp;</th>
+								{% for column in extra_columns %}
+								    <th>{{ column.name|capfirst }}</th>
+								{% endfor %}        
+								
+								{% if not hide_links %}
+								    <th class="">&nbsp;</th>
+								{% endif %}
                             {% endif %}
+
                         </tr>
                     {% endif %}
                     {% for object in object_list %}
@@ -109,43 +229,66 @@
                                 <td>{% if not hide_link %}<a href="{{ object.get_absolute_url }}">{{ object }}</a>{% else %}{{ object }}{% endif %}</td>
                             {% endif %}
                         {% endif %}
-                        {% for column in extra_columns_preffixed %}
-                            {% if column.keep_together %}
-                                <td>
-                                    {{ object|object_property:column.attribute|make_non_breakable }}
-                                </td>
-                            {% else %}
-                                <td>{{ object|object_property:column.attribute }}</td>
-                            {% endif %}
-                        {% endfor %}                        
-                        {% if not hide_columns %}
-                            {% for column in object|get_model_list_columns %}
-                                <td>{{ object|object_property:column.attribute }}</td>
-                            {% endfor %}
-                        {% endif %}
-                            {% for column in extra_columns %}
-                                {% if column.keep_together %}
-                                    <td>
-                                        {{ object|object_property:column.attribute|make_non_breakable }}
-                                    </td>
-                                {% else %}
-                                    <td>{{ object|object_property:column.attribute }}</td>
-                                {% endif %}
-                            {% endfor %}
-                            {% if not hide_links %}
-                                {% if list_object_variable_name %}
-                                    {% copy_variable object as list_object_variable_name %}
-                                    {% copy_variable list_object_variable_name as "navigation_object_name" %}
-                                {% endif %}
-                                <td class="last">
-                                    {% if navigation_object_links %}
-                                        {% with navigation_object_links as overrided_object_links %}
-                                            {% object_navigation_template %}
-                                        {% endwith %}
-                                    {% else %}
-                                        {% object_navigation_template %}
-                                    {% endif %}
-                                </td>
+                        
+                        {% if not hide_sort %}
+	                        {% for column in extra_columns_preffixed %}
+	                            {% if column.keep_together %}
+	                                <td>
+	                                    {{ object|object_property:column.attribute|make_non_breakable }}
+	                                </td>
+	                            {% else %}
+	                                <td>{{ object|object_property:column.attribute }}</td>
+	                            {% endif %}
+	                        {% endfor %}
+	                        
+	                        {% if not hide_columns %}
+	
+	                            {% for column in object|get_model_list_columns %}
+	                            
+	                            	{% if display_metadata_columns and column.name|lower == 'metadata' %}
+	                            		{% for metadata_column in metadata_columns %}
+	                            			
+	                            			{% if metadata_column.external_name|lower in object.documentmetadata_set.all|lower %}
+	                            				{% for obj_metadata in object.documentmetadata_set.all %}
+	                            					{% if obj_metadata|lower == metadata_column.external_name|lower %}
+	                            						<td>{{ obj_metadata.value }}</td>
+	                            					{% endif %}
+	                            				{% endfor %}
+	                            			{% else %}
+	                            				<td>&nbsp;</td>
+	                            			{% endif %}
+											
+	                            		{% endfor %}
+	                            	{% else %}
+	                            		<td>{{ object|object_property:column.attribute }}</td>
+	                            	{% endif %}
+	                            	
+	                            {% endfor %}
+	                        {% endif %}
+	                            {% for column in extra_columns %}
+	                                {% if column.keep_together %}
+	                                    <td>
+	                                        {{ object|object_property:column.attribute|make_non_breakable }}
+	                                    </td>
+	                                {% else %}
+	                                    <td>{{ object|object_property:column.attribute }}</td>
+	                                {% endif %}
+	                            {% endfor %}
+	                            {% if not hide_links %}
+	                                {% if list_object_variable_name %}
+	                                    {% copy_variable object as list_object_variable_name %}
+	                                    {% copy_variable list_object_variable_name as "navigation_object_name" %}
+	                                {% endif %}
+	                                <td class="last">
+	                                    {% if navigation_object_links %}
+	                                        {% with navigation_object_links as overrided_object_links %}
+	                                            {% object_navigation_template %}
+	                                        {% endwith %}
+	                                    {% else %}
+	                                        {% object_navigation_template %}
+	                                    {% endif %}
+	                                </td>
+	                            {% endif %}
                             {% endif %}
                         </tr>
                     {% empty %}

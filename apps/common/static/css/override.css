@@ -36,3 +36,13 @@
 .debug {
     border: 1px solid red;
 }
+
+.document_sort {
+	display: inline-block;
+	width: 20px;
+	height: 40px;
+}
+
+.metadata-filter {
+	width: 70px;
+}

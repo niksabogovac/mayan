@@ -1,0 +1,247 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Mayan EDMS\n"
+"Report-Msgid-Bugs-To: http://github.com/rosarior/mayan/issues\n"
+"POT-Creation-Date: 2012-12-12 01:49-0400\n"
+"PO-Revision-Date: Mon Oct 21 2013 10:11:57 GMT+0200 (Central Europe Daylight "
+"Time)\n"
+"Last-Translator: jomer <jomer@ping.ba>\n"
+"Language-Team: Bosnian (Bosnia and Herzegovina) (http://www.transifex."
+"com/projects/p/mayan-edms/language/bs_BA/)\n"
+"Language: bs_BA\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 "
+"&& (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Loco-Source-Locale: sr_RS\n"
+"X-Loco-Parser: loco_parse_po\n"
+"X-Loco-Target-Locale: bs_BA\n"
+"X-Generator: Loco - https://localise.biz/"
+
+msgid "Bootstrap setup file"
+msgstr "datoteka bootstrap podešavanja"
+
+msgid "Bootstrap setup URL"
+msgstr "URL bootstrap podešavanja"
+
+msgid "bootstrap"
+msgstr "bootstrap"
+
+msgid "bootstrap setup list"
+msgstr "bootstrap podešavajuća lista "
+
+msgid "create new bootstrap setup"
+msgstr "kreirati novo bootstrap podešavanje"
+
+msgid "edit"
+msgstr "izmeniti"
+
+msgid "delete"
+msgstr "obrisati"
+
+msgid "details"
+msgstr "detalji"
+
+msgid "execute"
+msgstr "izvršiti"
+
+msgid "dump current setup"
+msgstr "odbaciti trenutno podešavanje"
+
+msgid "export"
+msgstr "eksport"
+
+msgid "import from file"
+msgstr "unos iz datoteke"
+
+msgid "import from URL"
+msgstr "import sa URL-a"
+
+msgid "sync with repository"
+msgstr "sinhronizacija sa repozitorijumom"
+
+msgid "erase database"
+msgstr "izbrisati bazu podataka"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "YAML"
+msgstr "YAML"
+
+msgid "Better YAML"
+msgstr "Bolji YAML"
+
+msgid "name"
+msgstr "naziv"
+
+msgid "slug"
+msgstr "slug"
+
+msgid "description"
+msgstr "opis"
+
+msgid "fixture"
+msgstr "popravka"
+
+msgid "These are the actual database structure creation instructions."
+msgstr "Ovo su istrukcije za kreiranje stvarne strukture baze podataka."
+
+msgid "type"
+msgstr "tip"
+
+msgid "creation date and time"
+msgstr "datum i vreme kreiranja"
+
+msgid "bootstrap setup"
+msgstr "bootstrap podešavanje"
+
+msgid "bootstrap setups"
+msgstr "bootstrap podešavanja"
+
+msgid "Database bootstrap"
+msgstr "Bootstrap baze podataka"
+
+msgid "View bootstrap setups"
+msgstr "Pregledati bootstrap podešavanja"
+
+msgid "Create bootstrap setups"
+msgstr "Kreirati bootstrap podešavanja"
+
+msgid "Edit bootstrap setups"
+msgstr "Izmeniti bootstrap podešavanja"
+
+msgid "Delete bootstrap setups"
+msgstr "Obrisati bootstrap podešavanja"
+
+msgid "Execute bootstrap setups"
+msgstr "Izvršiti bootstrap podešavanja"
+
+msgid "Dump the current project\\s setup into a bootstrap setup"
+msgstr "Prebaciti podešavanje trenutnog/ih projekata u bootstrap podešavanje"
+
+msgid "Export bootstrap setups as files"
+msgstr "Eksport bootstrap podešavanja kao datoteka"
+
+msgid "Import new bootstrap setups"
+msgstr "Import novih bootstrap podešavanja"
+
+msgid "Sync the local bootstrap setups with a published repository"
+msgstr ""
+"Sinhronizovanje lokalnih bootstrap podešavanja sa sa objavljenim "
+"repozitorijumom"
+
+msgid "Erase the entire database and document storage"
+msgstr "Obrisati čitavu bazu podataka i skladište dokumenata"
+
+msgid "Bootstrap"
+msgstr "Bootstrap"
+
+msgid "Provides pre configured setups for indexes, document types, tags, etc."
+msgstr ""
+"Obezbeđuje ranije konfigurisana podešavanja za indekse, dokumente tipove, "
+"tagove, itd."
+
+msgid "Bootstrap setup created successfully"
+msgstr "Bootstrap podešavanje je uspešno kreirano"
+
+msgid "Error creating bootstrap setup."
+msgstr "Greška u kreiranju bootstrap podešavanja."
+
+msgid "create bootstrap"
+msgstr "kreirati bootstrap"
+
+msgid "Bootstrap setup edited successfully"
+msgstr "Bootstrap podešavanje je uspešno izmjenjeno."
+
+msgid "Error editing bootstrap setup."
+msgstr "Greška u izmeni bootstrap podešavanja."
+
+msgid "edit bootstrap setup: %s"
+msgstr "izmeniti bootstrap podešavanje: %s"
+
+msgid "Bootstrap setup: %s deleted successfully."
+msgstr "Bootstrap podešavanje: %s uspešno obrisano."
+
+msgid "Bootstrap setup: %(bootstrap)s, delete error: %(error)s"
+msgstr "Bootstrap podešavanje: %(bootstrap)s, greška pri brisanju: %(error)s"
+
+msgid "Are you sure you with to delete the bootstrap setup: %s?"
+msgstr "Da li ste sigurni da želite da izbrišete bootstrap podešavanje: %s?"
+
+msgid ""
+"Cannot execute bootstrap setup, there is existing data.  Erase all data and try "
+"again."
+msgstr ""
+"Bootstrap podešavanje se ne može izvršiti, postoje podaci. Izbrisati sve "
+"podatke i pokušati ponovo."
+
+msgid "Error executing bootstrap setup; %s"
+msgstr "Greška u izvršavanju bootstrap podešavanja; %s"
+
+msgid "Bootstrap setup \"%s\" executed successfully."
+msgstr "Bootstrap podešavanje \"%s\" uspešno izvršeno."
+
+msgid "Are you sure you wish to execute the database bootstrap setup named: %s?"
+msgstr ""
+"Da li ste sigurni da želite da izvršite bootstrap podešavanje baze podataka "
+"koje se zove: %s?"
+
+msgid "Error dumping configuration into a bootstrap setup; %s"
+msgstr "Greška u prebacivanju konfiguracije u bootstrap podešavanje; %s"
+
+msgid "Bootstrap setup created successfully."
+msgstr "Bootstrap podešavanje je uspešno kreirano."
+
+msgid "dump current configuration into a bootstrap setup"
+msgstr "prebaciti trenutnu konfiguraciju u bootstrap podešavanje"
+
+msgid "Bootstrap setup imported successfully."
+msgstr "Bootstrap podešavanje uspešno importovano."
+
+msgid "File is not a bootstrap setup."
+msgstr "Datoteka nije bootstrap podešavanje."
+
+msgid "Error importing bootstrap setup from file; %s."
+msgstr "Greška u importu bootstrap podešavanja iz datoteke; %s."
+
+msgid "Import bootstrap setup from file"
+msgstr "Importovati bootstrap podešavanje iz datoteke"
+
+msgid "Data from URL is not a bootstrap setup."
+msgstr "Podaci iz URL nisu bootstrap podešavanje."
+
+msgid "Error importing bootstrap setup from URL; %s."
+msgstr "Greška u importovanju bootstrap podešavanja sa URL-a; %s."
+
+msgid "Import bootstrap setup from URL"
+msgstr "Importovati bootstrap podešavanje sa URL-a"
+
+msgid "Error erasing database; %s"
+msgstr "Greška u brisanju baze podataka; %s"
+
+msgid "Database erased successfully."
+msgstr "Baza podataka je uspešno obrisana."
+
+msgid "Are you sure you wish to erase the entire database and document storage?"
+msgstr ""
+"Da li ste sigurni da želite da obrišete čitavu bazu podataka i skladište "
+"dokumenata?"
+
+msgid ""
+"All documents, sources, metadata, metadata types, set, tags, indexes and logs "
+"will be lost irreversibly!"
+msgstr ""
+"Svi dokumenti, izvori, metadata, tipovi metadata, setovi, tagovi, indeksi i "
+"logovi će biti nepovratno izgubljeni!"
+
+msgid "Bootstrap repository successfully synchronized."
+msgstr "Bootstrap repozitorijum je uspešno sinhronizovan."
+
+msgid "Bootstrap repository synchronization error: %(error)s"
+msgstr "Greška u sinhronizaciji bootstrap repozitorijuma: %(error)s"
+
+msgid "Are you sure you wish to synchronize with the bootstrap repository?"
+msgstr "Da li ste sigurni da želite da sinhronizujete sa bootstrap repozitorijumom?"

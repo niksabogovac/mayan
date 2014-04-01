@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ![Logo](https://github.com/rosarior/mayan/raw/master/docs/_static/mayan_logo_landscape_black.jpg)
 
 Mayan EDMS
@@ -53,3 +54,9 @@ Please [donate](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_butto
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/rosarior/mayan/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
+=======
+edms
+====
+
+edms
+>>>>>>> 0da545ceb93009e63284761743d9f8b504fc15eb

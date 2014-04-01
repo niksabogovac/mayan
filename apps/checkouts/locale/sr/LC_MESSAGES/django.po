@@ -1,0 +1,203 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Mayan EDMS\n"
+"Report-Msgid-Bugs-To: http://github.com/rosarior/mayan/issues\n"
+"POT-Creation-Date: 2012-12-12 01:48-0400\n"
+"PO-Revision-Date: Wed Oct 23 2013 08:54:54 GMT+0200 (Central Europe Daylight "
+"Time)\n"
+"Last-Translator: jomer <jomer@ping.ba>\n"
+"Language-Team: Bosnian (Bosnia and Herzegovina) (http://www.transifex."
+"com/projects/p/mayan-edms/language/bs_BA/)\n"
+"Language: bs_BA\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 "
+"&& (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Loco-Source-Locale: sr_RS\n"
+"X-Loco-Parser: loco_parse_po\n"
+"X-Loco-Target-Locale: bs_BA\n"
+"X-Generator: Loco - https://localise.biz/"
+
+msgid "Check expired check out documents and checks them in."
+msgstr "Proveri zastarele odjavljene dokumente i prijavi ih."
+
+msgid "Document checked out"
+msgstr "Dokument odjavljen"
+
+msgid "Document \"%(document)s\" checked out by %(fullname)s."
+msgstr "Dokument \"%(document)s\" odjavio/la %(fullname)s."
+
+msgid "Document checked in"
+msgstr "Dokument prijavljen"
+
+msgid "Document \"%(document)s\" checked in by %(fullname)s."
+msgstr "Dokument \"%(document)s\" prijavio/la %(fullname)s."
+
+msgid "Document automatically checked in"
+msgstr "Dokument je automatski prijavljen"
+
+msgid "Document \"%(document)s\" automatically checked in."
+msgstr "Dokument \"%(document)s\" je automatski prijavljen."
+
+msgid "Document forcefully checked in"
+msgstr "Dokument je prisilno prijavljen"
+
+msgid "Document \"%(document)s\" forcefully checked in by %(fullname)s."
+msgstr "Dokument \"%(document)s\" prisilno prijavio/la %(fullname)s."
+
+msgid "checkouts"
+msgstr "odjave"
+
+msgid "check out document"
+msgstr "odjavni dokument"
+
+msgid "check in document"
+msgstr "prijavni dokument"
+
+msgid "check in/out"
+msgstr "prijava/odjava"
+
+msgid "checked out"
+msgstr "odjavljeno"
+
+msgid "checked in/available"
+msgstr "prijavljeno/dostupno"
+
+msgid "document"
+msgstr "dokument"
+
+msgid "check out date and time"
+msgstr "datum i vreme odjave"
+
+msgid "check out expiration date and time"
+msgstr "datum i vreme isticanja prijave"
+
+msgid "Amount of time to hold the document checked out in minutes."
+msgstr "Vreme zadržavanja odjavljenog dokumenta u minutima "
+
+msgid "block new version upload"
+msgstr "blokirati upload nove verzije"
+
+msgid "Do not allow new version of this document to be uploaded."
+msgstr "Ne dozvoliti upload nove verzije ovog dokumenta."
+
+msgid "document checkout"
+msgstr "odjava dokumenta"
+
+msgid "document checkouts"
+msgstr "odjave dokumenata"
+
+msgid "Document checkout"
+msgstr "Odjava dokumenta"
+
+msgid "Check out documents"
+msgstr "Odjaviti dokumente"
+
+msgid "Check in documents"
+msgstr "Prijaviti dokumente"
+
+msgid "Forcefully check in documents"
+msgstr "Prisilno prijaviti dokumente"
+
+msgid "Allow overriding check out restrictions"
+msgstr "Dozvoliti uklanjanje ograničenja odjavljivanja"
+
+msgid "checked out documents"
+msgstr "odjavljeni dokumenti"
+
+msgid "checkout user"
+msgstr "korisnik koji je odjavio"
+
+msgid "checkout time and date"
+msgstr "vreme i datum odjave"
+
+msgid "checkout expiration"
+msgstr "isticanje odjave"
+
+msgid "User: %s"
+msgstr "Korisnik: %s"
+
+msgid "Check out time: %s"
+msgstr "Vreme odjave: %s"
+
+msgid "Check out expiration: %s"
+msgstr "Isticanje odjave za: %s"
+
+msgid "New versions allowed: %s"
+msgstr "Nove verzije dozvoljene: %s"
+
+msgid "yes"
+msgstr "da"
+
+msgid "no"
+msgstr "ne"
+
+msgid "Check out details for document: %s"
+msgstr "Odjavni detalji za dokument: %s"
+
+msgid "Error trying to check out document; %s"
+msgstr "Greška pokušaja odjave dokumenta; %s"
+
+msgid "Document \"%s\" checked out successfully."
+msgstr "Dokument \"%s\" uspešno odjavljen."
+
+msgid "Document already checked out."
+msgstr "Dokument je već odjavljen."
+
+msgid "Check out document: %s"
+msgstr "Odjaviti dokument: %s"
+
+msgid "Document has not been checked out."
+msgstr "Dokument nije odjavljen."
+
+msgid "Error trying to check in document; %s"
+msgstr "Greška pri pokušaju prijave dokumenta; %s"
+
+msgid "Document \"%s\" checked in successfully."
+msgstr "Dokument \"%s\" uspešno prijavljen."
+
+msgid ""
+"You didn't originally checked out this document.  Are you sure you wish to "
+"forcefully check in document: %s?"
+msgstr ""
+"Niste odjavili ovaj dokument. Da li ste sigurni da želite prisilno prijavite "
+"dokument: %s?"
+
+msgid "Are you sure you wish to check in document: %s?"
+msgstr "Da li ste sigurni da želite da prijavite dokument: %s?"
+
+msgid "Document status: %(widget)s %(text)s"
+msgstr "Status dokumenta: %(widget)s %(text)s"
+
+msgid "Days"
+msgstr "Dana"
+
+msgid "Hours"
+msgstr "Sati"
+
+msgid "Minutes"
+msgstr "Minuta"
+
+msgid "Enter a valid number of days."
+msgstr "Unesite validan broj dana."
+
+msgid "Enter a valid number of hours."
+msgstr "Unesite validan broj sati."
+
+msgid "Enter a valid number of minutes."
+msgstr "Unesite validan broj minuta."
+
+msgid "Enter a valid time difference."
+msgstr "Unesite važeću vremensku razliku."
+
+msgid ""
+"Amount of time to hold the document in the checked out state in days, hours "
+"and/or minutes."
+msgstr ""
+"Vremenski period zadržavanja dokumenta u odjavljenom stanju u danima, satima "
+"i/ili minutama."
+
+msgid "Check out expiration date and time"
+msgstr "Datum i vreme isticanja odjave"

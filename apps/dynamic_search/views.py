@@ -13,7 +13,6 @@ from django.core.urlresolvers import reverse
 from django.utils.http import urlencode
 
 from .conf.settings import SHOW_OBJECT_TYPE
-from .conf.settings import LIMIT
 from .forms import SearchForm, AdvancedSearchForm
 from .models import RecentSearch
 from .classes import SearchModel
@@ -25,10 +24,8 @@ document_search = SearchModel.get('documents.Document')
 def results(request, extra_context=None):
     context = {
         'query_string': request.GET,
-        #'hide_header': True,
         'hide_links': True,
         'multi_select_as_buttons': True,
-        'search_results_limit': LIMIT,
     }
 
     if request.GET:
@@ -39,29 +36,20 @@ def results(request, extra_context=None):
             # Simple query
             logger.debug('simple search')
             query_string = request.GET.get('q', u'').strip()
-            model_list, flat_list, shown_result_count, result_count, elapsed_time = document_search.simple_search(query_string)
+            object_list, elapsed_time = document_search.simple_search(query_string, user=request.user)
         else:
             # Advanced search
             logger.debug('advanced search')
-            model_list, flat_list, shown_result_count, result_count, elapsed_time = document_search.advanced_search(request.GET)
-            
-        if shown_result_count != result_count:
-            title = _(u'results, (showing only %(shown_result_count)s out of %(result_count)s)') % {
-                'shown_result_count': shown_result_count,
-                'result_count': result_count}
-                
-        else:
-            title = _(u'results')
-        
+            object_list, elapsed_time = document_search.advanced_search(request.GET, user=request.user)
+
         # Update the context with the search results
         context.update({
-            'found_entries': model_list,
-            'object_list': flat_list,
-            'title': title,
+            'object_list': object_list,
+            'title': _(u'results'),
             'time_delta': elapsed_time,
         })            
 
-        RecentSearch.objects.add_query_for_user(request.user, request.GET, result_count)
+        RecentSearch.objects.add_query_for_user(request.user, request.GET, len(object_list))
 
     if extra_context:
         context.update(extra_context)
@@ -83,7 +71,7 @@ def search(request, advanced=False):
                 'title': _(u'advanced search'),
                 'form_action': reverse('results'),
                 'submit_method': 'GET',
-                'search_results_limit': LIMIT,
+                #'search_results_limit': LIMIT,
                 'submit_label': _(u'Search'),
                 'submit_icon_famfam': 'zoom',
             },

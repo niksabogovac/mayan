@@ -17,7 +17,7 @@ register_setting(
     module=u'main.conf.settings',
     name=u'DISABLE_HOME_VIEW',
     global_name=u'MAIN_DISABLE_HOME_VIEW',
-    default=False,
+    default=True,
 )
 
 register_setting(

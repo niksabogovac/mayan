@@ -119,3 +119,32 @@ def convert_dict_to_dict_list(dictionary):
         result.append({'id': metadata_type.pk, 'value': value})
     
     return result
+
+def create_metadata(metadata_dict_list):
+    metadata_dict_id_list = []
+    for metadata_dict in metadata_dict_list:
+        try:
+            #sort_metadata_type = MetadataType.objects.get(metadata_dict.key)
+            for item in metadata_dict:
+                metadata_dict_new = {}
+                metadata_type_name = item
+                metadata_type_value = metadata_dict[item]
+                print metadata_type_name + ' : ' + metadata_type_value
+
+                new_metadata, created = MetadataType.objects.get_or_create(name=metadata_type_name)
+                
+                if created == False:
+                    print 'MetadataType ' + metadata_type_name + ' already exists with pk id ' + str(new_metadata.id) +  '. Skiping creation...'
+                else:
+                    print 'New MetadataType with id :  ' + str(new_metadata.id)
+                    new_metadata.title = metadata_type_name
+                    new_metadata.lookup = metadata_type_value + ","
+                    new_metadata.default = metadata_type_value
+                    new_metadata.save()
+                metadata_dict_new['id'] = new_metadata.id
+                metadata_dict_new['name'] = metadata_type_name
+                metadata_dict_new['value'] = metadata_type_value
+                metadata_dict_id_list.append(metadata_dict_new)
+        except:
+            raise
+    return metadata_dict_id_list

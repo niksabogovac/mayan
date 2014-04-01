@@ -1,23 +1,23 @@
 from __future__ import absolute_import
-
-from django import forms
-from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ugettext
-from django.core.urlresolvers import reverse
-from django.utils.safestring import mark_safe
-from django.utils.html import conditional_escape
-from django.utils.encoding import force_unicode
-        
+from .literals import RELEASE_LEVEL_FINAL, RELEASE_LEVEL_CHOICES, \
+    DEFAULT_ZIP_FILENAME
+from .models import Document, DocumentType, DocumentPage, \
+    DocumentPageTransformation, DocumentTypeFilename, DocumentVersion
+from .widgets import document_html_widget
+from common.conf.settings import DEFAULT_PAPER_SIZE, DEFAULT_PAGE_ORIENTATION
 from common.forms import DetailForm
 from common.literals import PAGE_SIZE_CHOICES, PAGE_ORIENTATION_CHOICES
-from common.conf.settings import DEFAULT_PAPER_SIZE, DEFAULT_PAGE_ORIENTATION
 from common.widgets import TextAreaDiv
+from django import forms
+from django.core.urlresolvers import reverse
+from django.utils.encoding import force_unicode
+from django.utils.html import conditional_escape
+from django.utils.safestring import mark_safe
+from django.utils.translation import ugettext, ugettext_lazy as _
+from documents.literals import DEFAULT_CSV_FILENAME
 
-from .models import (Document, DocumentType,
-    DocumentPage, DocumentPageTransformation, DocumentTypeFilename,
-    DocumentVersion)
-from .widgets import document_html_widget
-from .literals import (RELEASE_LEVEL_FINAL, RELEASE_LEVEL_CHOICES, DEFAULT_ZIP_FILENAME)
+        
+
 
 
 # Document page forms
@@ -152,6 +152,7 @@ class DocumentForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         document_type = kwargs.pop('document_type', None)
         instance = kwargs.pop('instance', None)
+        csv = kwargs.pop('csv', False)
 
         super(DocumentForm, self).__init__(*args, **kwargs)
 
@@ -171,7 +172,7 @@ class DocumentForm(forms.ModelForm):
             if hasattr(instance, 'document_type'):
                 document_type = instance.document_type
 
-        if document_type:
+        if not csv and document_type:
             filenames_qs = document_type.documenttypefilename_set.filter(enabled=True)
             if filenames_qs.count() > 0:
                 self.fields['document_type_available_filenames'] = forms.ModelChoiceField(
@@ -327,4 +328,9 @@ class DocumentDownloadForm(forms.Form):
             self.fields['compressed'].initial = True
             self.fields['compressed'].widget.attrs.update({'disabled': True})   
     
+class DocumentExportMetadataForm(forms.Form):
     
+    csv_filename = forms.CharField(initial=DEFAULT_CSV_FILENAME, label=_(u'CSV filename'), required=False, help_text=_(u'The filename of the csv file that will contain the documents names and corresponding metadata.'))
+    
+    def __init__(self, *args, **kwargs):
+        super( DocumentExportMetadataForm, self).__init__(*args, **kwargs)

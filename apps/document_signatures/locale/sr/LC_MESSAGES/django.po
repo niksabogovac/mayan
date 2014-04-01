@@ -1,0 +1,93 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Mayan EDMS\n"
+"Report-Msgid-Bugs-To: http://github.com/rosarior/mayan/issues\n"
+"POT-Creation-Date: 2012-12-12 01:48-0400\n"
+"PO-Revision-Date: Wed Oct 23 2013 12:06:10 GMT+0200 (Central Europe Daylight "
+"Time)\n"
+"Last-Translator: jomer <jomer@ping.ba>\n"
+"Language-Team: Bosnian (Bosnia and Herzegovina) (http://www.transifex."
+"com/projects/p/mayan-edms/language/bs_BA/)\n"
+"Language: bs_BA\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 "
+"&& (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Loco-Source-Locale: sr_RS\n"
+"X-Loco-Parser: loco_parse_po\n"
+"X-Loco-Target-Locale: bs_BA\n"
+"X-Generator: Loco - https://localise.biz/"
+
+msgid "upload signature"
+msgstr "ubaci potpis"
+
+msgid "download signature"
+msgstr "preuzmi potpis"
+
+msgid "signatures"
+msgstr "potpisi"
+
+msgid "Signature file"
+msgstr "Datoteka potpisa"
+
+msgid "document version"
+msgstr "verzija dokumenta"
+
+msgid "signature file"
+msgstr "datoteka potpisa"
+
+msgid "has embedded signature"
+msgstr "ima sadržan potpis"
+
+msgid "document version signature"
+msgstr "potpis verzije dokumenta"
+
+msgid "document version signatures"
+msgstr "potpisi verzije dokumenta"
+
+msgid "Document signatures"
+msgstr "Potpisi dokumenta"
+
+msgid "Verify document signatures"
+msgstr "Proveriti potpise dokumenta"
+
+msgid "Upload detached signatures"
+msgstr "Ubaci odvojene potpise"
+
+msgid "Download detached signatures"
+msgstr "Preuzmi odvojene potpise"
+
+msgid "Signature status: %(widget)s %(text)s"
+msgstr "Status potpisa: %(widget)s %(text)s"
+
+msgid "embedded"
+msgstr "sadržano"
+
+msgid "detached"
+msgstr "odvojeno"
+
+msgid "Signature ID: %s"
+msgstr "ID oznaka potpisa: %s"
+
+msgid "Signature type: %s"
+msgstr "Tip potpisa: %s"
+
+msgid "Key ID: %s"
+msgstr "ID oznaka ključa: %s"
+
+msgid "Timestamp: %s"
+msgstr "Vremenski žig: %s"
+
+msgid "Signee: %s"
+msgstr "Potpisnik: %s"
+
+msgid "signature properties for: %s"
+msgstr "svojstva potpisa za: %s"
+
+msgid "Detached signature uploaded successfully."
+msgstr "Odvojeni potpis je uspešno ubačen."
+
+msgid "Upload detached signature for: %s"
+msgstr "Ubaciti odvojeni potpis za: %s"
