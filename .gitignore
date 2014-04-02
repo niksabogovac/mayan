@@ -1,9 +1,8 @@
-<<<<<<< HEAD
 *.orig
 *.pyc
 *.pyo
 /*.sqlite
-/settings.py
+settings.py
 /settings_local.py
 /celerybeat-schedule
 /document_storage/
