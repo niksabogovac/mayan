@@ -44,7 +44,6 @@ $(document).ready(function() {
 	$('button').click(function(e){
 		var target = e.target || e.srcElement;
 		if(target.className == 'button-filter-metadata') {
-			e.preventDefault();
 			return false;
 		}
 		return true;
@@ -62,8 +61,6 @@ $(document).ready(function() {
 	    	var numberOfFilters = Number('{{filter_column_count}}');
 	    	submitUrl += resolveQuery(numberOfFilters, filterColumn, filterValue);
 	    	window.location = submitUrl;
-	    	e.preventDefault();
-	    	return false.
 	    }
 	});
 });
