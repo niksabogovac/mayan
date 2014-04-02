@@ -3,6 +3,7 @@
 *.pyc
 *.pyo
 /*.sqlite
+/settings.py
 /settings_local.py
 /celerybeat-schedule
 /document_storage/
@@ -15,7 +16,6 @@ _build/
 /whoosh_index/
 /fabfile_install
 /venv/
-=======
 *.py[cod]
 
 # C extensions
@@ -52,4 +52,3 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
->>>>>>> 0da545ceb93009e63284761743d9f8b504fc15eb
