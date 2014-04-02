@@ -172,7 +172,8 @@ def document_list(request, object_list=None, title=None, extra_context=None,):
         'display_metadata_columns' : True,
         'sort_identifier': 'documentversion__filename',
         'filter_column_count': len(filter_columns.values()),
-        'filter_columns': filter_columns
+        'filter_columns': filter_columns,
+        'metadata_translation': _(u'metadata')
     }
     
     if request.path == '/documents/list/':

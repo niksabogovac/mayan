@@ -44,6 +44,7 @@ $(document).ready(function() {
 	$('button').click(function(e){
 		var target = e.target || e.srcElement;
 		if(target.className == 'button-filter-metadata') {
+			e.preventDefault();
 			return false;
 		}
 		return true;
@@ -61,6 +62,8 @@ $(document).ready(function() {
 	    	var numberOfFilters = Number('{{filter_column_count}}');
 	    	submitUrl += resolveQuery(numberOfFilters, filterColumn, filterValue);
 	    	window.location = submitUrl;
+	    	e.preventDefault();
+	    	return false.
 	    }
 	});
 });
@@ -161,10 +164,10 @@ $(document).ready(function() {
                                 </th>
 
                             {% endfor %}
-
-							{% if not hide_sort %}
+                            
+							{% if not hide_sort %}	
 	                            {% for column in object_list.0|get_model_list_columns %}
-	                            	{% if display_metadata_columns and column.name|lower == 'metadata' %}
+	                            	{% if display_metadata_columns and column.name|lower == metadata_translation %}
 										{% for metadata_column in metadata_columns %}
 											<th>
 
@@ -245,7 +248,7 @@ $(document).ready(function() {
 	
 	                            {% for column in object|get_model_list_columns %}
 	                            
-	                            	{% if display_metadata_columns and column.name|lower == 'metadata' %}
+	                            	{% if display_metadata_columns and column.name|lower == metadata_translation %}
 	                            		{% for metadata_column in metadata_columns %}
 	                            			
 	                            			{% if metadata_column.external_name|lower in object.documentmetadata_set.all|lower %}
