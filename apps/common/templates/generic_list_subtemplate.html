@@ -14,7 +14,7 @@
 <script type="text/javascript">
 
 //returns new query with new filter or already used filter with updated value
-function resolveQuery(numberOfFilters, filterColumn, filterValue, query) {
+function resolveQuery(numberOfFilters, filterColumn, filterValue) {
 	var query = window.location.search + '';
 	//filter is already used so we need to update query part with new filter value
 	if(query.indexOf(filterColumn) != -1) {
@@ -43,24 +43,56 @@ $(document).ready(function() {
 	//checks if some of the special filter metadata folder documents view buttons is clicked
 	$('button').click(function(e){
 		var target = e.target || e.srcElement;
-		if(target.className == 'button-filter-metadata') {
+		console.log('target.className: ' + target.className);
+		if(target.className == 'button-filter-metadata' || target.className == 'button-folder-search') {
 			return false;
 		}
-		return true;
+		return false;
 	});
 	
 	$('input').keyup(function(e){
 		var FILTER_TEMPLATE_NAME = 'search_id_';
 		var FILTER_TEMPLATE_BUTTON_NAME = 'search_button_id_';
+		var FOLDER_SEARCH_TEMPLATE_NAME = 'folders_search_id';
+		var FOLDER_SEARCH_TEMPLATE_BUTTON_NAME = 'folders_search_button';
 		var target = e.target || e.srcElement;
-	    if(e.keyCode == 13 && target.id.startsWith(FILTER_TEMPLATE_NAME)){
-	    	console.log(e);
-	    	var filterColumn = target.id.substring(FILTER_TEMPLATE_NAME.length);
-	    	var filterValue = $('#' + FILTER_TEMPLATE_NAME + filterColumn).val();
-	    	var submitUrl = $('#' + FILTER_TEMPLATE_BUTTON_NAME + filterColumn).val();
-	    	var numberOfFilters = Number('{{filter_column_count}}');
-	    	submitUrl += resolveQuery(numberOfFilters, filterColumn, filterValue);
-	    	window.location = submitUrl;
+	    if(e.keyCode == 13){
+	    	if(target.id.startsWith(FILTER_TEMPLATE_NAME)) {
+		    	var filterColumn = target.id.substring(FILTER_TEMPLATE_NAME.length);
+		    	var filterValue = $('#' + FILTER_TEMPLATE_NAME + filterColumn).val();
+		    	var submitUrl = $('#' + FILTER_TEMPLATE_BUTTON_NAME + filterColumn).val();
+		    	var numberOfFilters = Number('{{filter_column_count}}');
+		    	submitUrl += resolveQuery(numberOfFilters, filterColumn, filterValue);
+		    	window.location = submitUrl;	
+	    	} else if(target.id.startsWith(FOLDER_SEARCH_TEMPLATE_NAME)) {
+		    	//var filterColumn = target.id.substring(FILTER_TEMPLATE_NAME.length);
+		    	var foldersSearchValue = $('#' + FOLDER_SEARCH_TEMPLATE_NAME).val();
+		    	var submitUrl = $('#' + FOLDER_SEARCH_TEMPLATE_BUTTON_NAME).val();
+		    	var query = window.location.search + '';
+		    	console.log("query: " +  query);
+		    	var folderSearchParam = 'folders_search';
+		    	//folder search is already used so we need to update query part with new folder search value
+		    	if(query.indexOf(folderSearchParam) != -1) {
+		    		console.log("if(query.indexOf( folderSearchParam) != -1) {");
+		    		var valueStartIndex = query.indexOf('=', query.indexOf( folderSearchParam)) + 1
+		    		var valueEndIndex = query.indexOf('&', valueStartIndex);
+		    		//we are on the end of the query
+		    		if(valueEndIndex == -1) {
+		    			valueEndIndex = query.length;
+		    		}
+		    		query = query.replaceBetween(valueStartIndex, valueEndIndex, foldersSearchValue);
+		    	} else {
+		    		if((window.location + '').indexOf('?') == -1) {
+		        		query += '?';
+		        	} else {
+		        		query += '&';
+		        	}
+		    		query += 'folders_search=' + foldersSearchValue;
+		    	}
+		    	submitUrl += query;
+		    	console.log("submitUrl: " + submitUrl);
+		    	window.location = submitUrl;
+	    	}
 	    }
 	});
 });
@@ -88,7 +120,19 @@ $(document).ready(function() {
     <div class="inner">
 {% endif %}
 
-        <form action="{% url multi_object_action_view %}" class="form multi_select" method="get" >
+        <form action="{% url multi_object_action_view %}" class="form multi_select" method="get">
+        
+        	{% if type == 'folders' %}
+        		<div class="folders_search">
+        			{{ folder_search }}:&nbsp;&nbsp;&nbsp;
+					<input id="folders_search_id"  name="folders_search_name"" 
+					value="{{ folders_value }}" class="metadata-filter" />
+					<button class="button-folder-search" type="submit" id="folders_search_button" 
+						name="folders_search_button_name" 
+						value="{{ request.path }}"
+						style="margin-bottom: 8px;display: none;"></button>
+				</div>
+        	{% endif %}
 
             {% if object_list %}
                 {% if multi_select or multi_select_as_buttons %}
@@ -111,8 +155,8 @@ $(document).ready(function() {
                             </button>
                         </div>
                     {% endif %}
-                {% endif %}          
-            {% endif %}          
+                {% endif %}
+            {% endif %}
         
             {% if scrollable_content %}
                 <div style="border: 1px solid; height: {{ scrollable_content_height }}; overflow: auto;">

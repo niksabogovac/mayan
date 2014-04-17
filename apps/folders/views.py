@@ -32,8 +32,11 @@ logger = logging.getLogger(__name__)
 
 
 def folder_list(request, queryset=None, extra_context=None):
+    
     context = {
+        'type': 'folders',
         'title': _(u'folders'),
+        'folder_search': _(u'Search'),
         'multi_select_as_buttons': True,
         'extra_columns': [
             {'name': _(u'created'), 'attribute': 'datetime_created'},
@@ -44,7 +47,12 @@ def folder_list(request, queryset=None, extra_context=None):
     if extra_context:
         context.update(extra_context)
 
-    queryset = queryset if not (queryset is None) else Folder.objects.all()
+    folders_search = request.GET.get('folders_search', '')
+    if folders_search != '':
+        queryset = queryset if not (queryset is None) else Folder.objects.filter(title__icontains=folders_search)
+        context.update({messages : None})
+    else:
+        queryset = queryset if not (queryset is None) else Folder.objects.all()
 
     try:
         Permission.objects.check_permissions(request.user, [PERMISSION_FOLDER_VIEW])
